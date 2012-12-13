@@ -1,0 +1,84 @@
+package ee.itcollege.borderproject.util;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.annotation.PostConstruct;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class SetupDb {
+	
+	private static final String SQL_BUILD_SCRIPT = "D:/Java Workspace/Projekt_11/ProjektTest/Piirivalve.script";
+	private static final String CONNECTION_URL = "jdbc:hsqldb:file:Team11BorderDb";
+	
+	@PostConstruct
+	public void createTables() throws SQLException, ClassNotFoundException, IOException {
+		Connection connection = null;
+		
+		try {
+			connection = createConnection();
+			if( isDatabaseEmpty( connection )){
+				List<String> statements = statementList( SQL_BUILD_SCRIPT );
+				executeSqlStatements( statements );
+			}
+			
+			System.out.println( isDatabaseEmpty(connection) );
+		}
+		finally {
+			if( connection != null ){
+				connection.close();
+			}
+		}
+	}
+	
+	public Connection createConnection() throws SQLException, ClassNotFoundException {
+		Class.forName("org.hsqldb.jdbcDriver");
+		return DriverManager.getConnection( CONNECTION_URL );
+	}
+	
+	private boolean isDatabaseEmpty(Connection conn) throws SQLException {
+		Statement statement = conn.createStatement();
+		ResultSet result = statement.executeQuery("SELECT count(*) FROM information_schema.system_tables WHERE table_name = 'AMET';");
+		result.next();
+		int tableCount = result.getInt(1);
+		return tableCount == 0;
+	}
+	
+	private List<String> statementList(String fileName) throws IOException {
+		List<String> collectedStatements = new ArrayList<String>();
+		
+		BufferedReader reader = new BufferedReader(new FileReader(fileName));
+
+		try {
+			String statementLine ;
+			while ((statementLine = reader.readLine()) != null) {
+				if(statementLine.trim().length() > 1) 
+					collectedStatements.add( statementLine );
+			}
+		} finally {
+			reader.close();
+		}
+		
+		return collectedStatements;
+	}
+	
+	private void executeSqlStatements(List<String> statements) throws ClassNotFoundException, SQLException {
+		Statement statement = createConnection().createStatement();
+		
+		for(String line : statements ){
+			System.out.println( line );
+			statement.execute( line );
+		}
+	}
+	
+}

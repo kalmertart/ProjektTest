@@ -33,6 +33,8 @@ public abstract class CrudController<T extends BaseEntity> {
 	protected abstract T find(Integer entityId);
 	protected abstract void update(T entity);
 	
+	private static final String VIEW = "/view";
+	
 	public CrudController() {
 		entityClass = figureOutPersistentClass();
 	}
@@ -57,9 +59,10 @@ public abstract class CrudController<T extends BaseEntity> {
 		this.listingAttribute = listingAttribute;
 	}
 
-	@RequestMapping(value = "/view", method = RequestMethod.GET)
+	@RequestMapping(value = VIEW, method = RequestMethod.GET)
 	public String view(Model model) {
 		model.addAttribute(listingAttribute, getAll());
+		System.out.println(getAll().size());
 		return listingView;
 	}
 
