@@ -3,7 +3,6 @@ package ee.itcollege.borderproject.util;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -19,8 +18,9 @@ import org.springframework.stereotype.Component;
 @Component
 public class SetupDb {
 	
-	private static final String SQL_BUILD_SCRIPT = 
-			"C:/Code/Java/workspace_team11_project/ProjektTest/WebContent/WEB-INF/resources/Piirivalve.script";
+	private static final String SQL_COMMENT = "--";
+	private static final String SQL_BUILD_SCRIPT = "";
+		// Kalmer: 	"D:/Java Workspace/Projekt_11/ProjektTest/WebContent/WEB-INF/resources/Piirivalve.script";
 	private static final String CONNECTION_URL = "jdbc:hsqldb:file:Team11BorderDb";
 	
 	@PostConstruct
@@ -47,8 +47,8 @@ public class SetupDb {
 		try {
 			System.out.println(new java.io.File(".").getCanonicalPath());
 			return new java.io.File("/WEB-INF/resources/Piiripunkt.script").getCanonicalPath();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
+		}
+		catch (IOException e) {
 			e.printStackTrace();
 		}
 		return "";
@@ -75,7 +75,7 @@ public class SetupDb {
 		try {
 			String statementLine ;
 			while ((statementLine = reader.readLine()) != null) {
-				if(statementLine.trim().length() > 1) 
+				if(statementLine.trim().length() > 1 && !statementLine.contains( SQL_COMMENT ))
 					collectedStatements.add( statementLine );
 			}
 		} finally {

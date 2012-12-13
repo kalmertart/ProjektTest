@@ -18,9 +18,9 @@ public class GuardController extends CrudController<Guard> {
 	@Resource
 	private GuardDao guardDao;
 
-	private static final String LIST_GUARDS_VIEW = "ListGuards";
-	private static final String ADD_GUARD_VIEW = "AddGuard";
-	private static final String UPDATE_GUARD_VIEW = "UpdateGuard";
+	private static final String LIST_GUARDS_VIEW = "guard/ListGuards";
+	private static final String ADD_GUARD_VIEW = "guard/AddGuard";
+	private static final String UPDATE_GUARD_VIEW = "guard/UpdateGuard";
 	private static final String GUARD_CRUD_ROOT = "guard";
 	private static final String GUARDS_ATTRIBUTE = "guards";
 
