@@ -50,9 +50,6 @@ public class GuardController extends CrudController<Guard> {
 
 	@Override
 	protected List<Guard> getAll() {
-		Guard guard = new Guard();
-		guard.setFirstName("Juhmard");
-		guardDao.save( guard );
 		return guardDao.getAll();
 	}
 

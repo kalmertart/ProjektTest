@@ -19,7 +19,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class SetupDb {
 	
-	private static final String SQL_BUILD_SCRIPT = getScriptLocation();
+	private static final String SQL_BUILD_SCRIPT = 
+			"C:/Code/Java/workspace_team11_project/ProjektTest/WebContent/WEB-INF/resources/Piirivalve.script";
 	private static final String CONNECTION_URL = "jdbc:hsqldb:file:Team11BorderDb";
 	
 	@PostConstruct

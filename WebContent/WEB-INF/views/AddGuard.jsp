@@ -4,28 +4,56 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 <pr:Layout>
-	<h1>Add Guard</h1>
 	<div class="hero-unit">
-
-		<form:form action="add" method="POST"
-			modelAttribute="guard">
-			<table>
-				<tr>
-					<td><form:label path="name">Name</form:label></td>
-					<td><form:input path="name" /></td>
-					<td><form:errors path="name" /></td>
-				</tr>
-				<tr>
-					<td><form:label path="age">Age</form:label></td>
-					<td><form:input path="age" /></td>
-					<td><form:errors path="age" /></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td><input type="submit" value="Add Guard"
-						class="btn btn-primary btn-larg" /></td>
-				</tr>
-			</table>
-		</form:form>
+		<h1>Add Guard</h1>
 	</div>
+	<form:form action="add" method="POST" modelAttribute="guard">
+		<table>
+			<tr>
+				<td><form:label path="firstName">Eesnimi</form:label></td>
+				<td><form:input path="firstName" /></td>
+				<td><form:errors path="firstName" /></td>
+			</tr>
+			<tr>
+				<td><form:label path="lastName">Perekonnanimi</form:label></td>
+				<td><form:input path="lastName" /></td>
+				<td><form:errors path="lastName" /></td>
+			</tr>
+			<tr>
+				<td><form:label path="address">Aadress</form:label></td>
+				<td><form:input path="address" /></td>
+				<td><form:errors path="address" /></td>
+			</tr>
+			<tr>
+				<td><form:label path="email">Email</form:label></td>
+				<td><form:input path="email" /></td>
+				<td><form:errors path="email" /></td>
+			</tr>
+			<tr>
+				<td><form:label path="socialSecurityNumber">Isikukood</form:label></td>
+				<td><form:input path="socialSecurityNumber" /></td>
+				<td><form:errors path="socialSecurityNumber" /></td>
+			</tr>
+			<tr>
+				<td><form:label path="soldiersCode">Sõdurikood</form:label></td>
+				<td><form:input path="soldiersCode" /></td>
+				<td><form:errors path="soldiersCode" /></td>
+			</tr>
+			<tr>
+				<td><form:label path="gender">Sugu</form:label></td>
+				<td><form:input path="gender" /></td>
+				<td><form:errors path="gender" /></td>
+			</tr>
+			<tr>
+				<td><form:label path="phoneNumber">telefon</form:label></td>
+				<td><form:input path="phoneNumber" /></td>
+				<td><form:errors path="phoneNumber" /></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><input type="submit" value="Add Guard"
+					class="btn btn-primary btn-larg" /></td>
+			</tr>
+		</table>
+	</form:form>
 </pr:Layout>
