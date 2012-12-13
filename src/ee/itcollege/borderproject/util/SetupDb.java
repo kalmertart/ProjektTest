@@ -3,6 +3,7 @@ package ee.itcollege.borderproject.util;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -18,7 +19,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class SetupDb {
 	
-	private static final String SQL_BUILD_SCRIPT = "D:/Java Workspace/Projekt_11/ProjektTest/Piirivalve.script";
+	private static final String SQL_BUILD_SCRIPT = getScriptLocation();
 	private static final String CONNECTION_URL = "jdbc:hsqldb:file:Team11BorderDb";
 	
 	@PostConstruct
@@ -39,6 +40,17 @@ public class SetupDb {
 				connection.close();
 			}
 		}
+	}
+	
+	public static String getScriptLocation()  {
+		try {
+			System.out.println(new java.io.File(".").getCanonicalPath());
+			return new java.io.File("/WEB-INF/resources/Piiripunkt.script").getCanonicalPath();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return "";
 	}
 	
 	public Connection createConnection() throws SQLException, ClassNotFoundException {
