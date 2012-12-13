@@ -1,0 +1,10 @@
+.classpath
+.settings
+WebContent/WEB-INF/classes
+WebContent/WEB-INF/lib
+lib/build
+lib/sources
+.project
+ivy
+bin
+dist
