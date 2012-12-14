@@ -99,7 +99,8 @@ public abstract class CrudController<T extends BaseEntity> {
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
 	public String receiveUpdate(Model model,
 			@ModelAttribute @Valid T entity, BindingResult result) {				
-		
+		System.out.println("SIGA2");
+
 		if(result.hasErrors())
 			return updatingView;
 		

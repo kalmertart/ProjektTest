@@ -6,15 +6,17 @@ import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
 import javax.persistence.PrePersist;
 import javax.persistence.PreRemove;
 import javax.persistence.PreUpdate;
 
+@MappedSuperclass
 public abstract class BaseEntity {
 	
-//	@Id
-//	@GeneratedValue( strategy = GenerationType.TABLE ) 
-//	private int id;
+	@Id
+	@GeneratedValue( strategy = GenerationType.TABLE ) 
+	private int id;
 	
 	@Column(name = "avaja")
 	private String creator;
@@ -55,10 +57,14 @@ public abstract class BaseEntity {
 		this.version = version;
 	}
 
-//	public int getId() {
-//		return id;
-//	}
+	public int getId() {
+		return id;
+	}
 
+	public void setId(int id) {
+		this.id = id;  
+	}
+	
 	public String getCreator() {
 		return creator;
 	}

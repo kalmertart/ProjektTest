@@ -22,9 +22,9 @@ public class Guard extends BaseEntity implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
-	@Id
-	@GeneratedValue( strategy = GenerationType.TABLE ) 
-	private int id;
+//	@Id
+//	@GeneratedValue( strategy = GenerationType.TABLE ) 
+//	private int id;
 	
 	@Column(name = "aadress")
 	private String address;
@@ -49,9 +49,13 @@ public class Guard extends BaseEntity implements Serializable {
 	@Column(name = "telefon")
 	private String phoneNumber;
 	
-	public int getId() {
-		return id;
-	}
+//	public int getId() {
+//		return id;
+//	}
+	
+//	public void setId(int id) {
+//		this.id = id;  
+//	}
 
 	public String getAddress() {
 		return address;

@@ -19,8 +19,10 @@ import org.springframework.stereotype.Component;
 public class SetupDb {
 	
 	private static final String SQL_COMMENT = "--";
-	private static final String SQL_BUILD_SCRIPT = "";
+	private static final String SQL_BUILD_SCRIPT = 
+			"C:/Code/Java/workspace_team11_project/ProjektTest/WebContent/WEB-INF/resources/Piirivalve.script";
 		// Kalmer: 	"D:/Java Workspace/Projekt_11/ProjektTest/WebContent/WEB-INF/resources/Piirivalve.script";
+		// Martin:	C:/Code/Java/workspace_team11_project/ProjektTest/WebContent/WEB-INF/resources/Piirivalve.script
 	private static final String CONNECTION_URL = "jdbc:hsqldb:file:Team11BorderDb";
 	
 	@PostConstruct
