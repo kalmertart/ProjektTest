@@ -8,9 +8,18 @@
         http://www.springframework.org/schema/context/spring-context-3.0.xsd
         http://www.springframework.org/schema/mvc
         http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
-	
+
 	<context:component-scan base-package="ee.itcollege.borderproject" />
-	
-	<mvc:resources location="/css/" mapping="/css/**"/>
-	
+
+	<mvc:resources location="/css/" mapping="/css/**" />
+
+	<bean id="messageSource"
+		class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basenames">
+			<list>
+				<value>messages</value>
+			</list>
+		</property>
+	</bean>
+
 </beans>
