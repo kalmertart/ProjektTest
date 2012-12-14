@@ -10,12 +10,20 @@ import javax.persistence.MappedSuperclass;
 import javax.persistence.PrePersist;
 import javax.persistence.PreRemove;
 import javax.persistence.PreUpdate;
+import javax.persistence.TableGenerator;
 
 @MappedSuperclass
 public abstract class BaseEntity {
 	
 	@Id
-	@GeneratedValue( strategy = GenerationType.TABLE ) 
+	@GeneratedValue(strategy = GenerationType.TABLE, 
+					generator =  "generatorName")
+	@TableGenerator(table= "SEQUENCE", 
+					initialValue = 1, 
+					allocationSize = 1, 
+					name = "generatorName",
+					pkColumnName = "SEQ_NAME",
+					valueColumnName = "SEQ_COUNT")
 	private int id;
 	
 	@Column(name = "avaja")
