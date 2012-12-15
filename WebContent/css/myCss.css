@@ -19,9 +19,17 @@
 	float: left;
 }
 
-#rightpanel {
+.rightpanel {
 	margin-left:50px;
 	float: left;
+}
+
+#commentpanel {
+	clear: both;
+}
+
+#commentpanel textarea {
+	width: 90%;
 }
 
 #buttonspanel {
@@ -31,6 +39,7 @@
 #listingtable td {
 	padding:15px;
 }
+
 
 #listingtable th {
 	padding-right: 15px; 

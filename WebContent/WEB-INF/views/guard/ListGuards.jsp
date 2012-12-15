@@ -7,7 +7,7 @@
 		<h1><spring:message code="guard.plural" /></h1>
 	</div>
 	<div id="hor-minimalist-b">
-		<table class="listingtable">
+		<table>
 			<tr>
 				<th><h4><spring:message code="entity.field.id" /></h4></th>
 				<th><h4><spring:message code="guard.field.socialSecurityNumber" /></h4></th>

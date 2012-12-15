@@ -79,7 +79,7 @@
 						<tr>
 					</table>
 				</div>
-				<div id="rightpanel">
+				<div class="rightpanel">
 					<table>
 						<tr>
 							<td><form:label path="email">
@@ -129,8 +129,7 @@
 			</div>
 			<div id="buttonspanel">
 				<input type="submit" value="<spring:message code="entity.button.save" />" class="btn btn-success " /> 
-				<a class="btn btn-default" href="<c:url value="/guard/view"/>"><spring:message code="entity.button.cancel" /></a> 
-				<a class="btn btn-default" href=""><spring:message code="entity.button.delete" /></a>
+				<a class="btn btn-default" href="<c:url value="/guard/view"/>"><spring:message code="entity.button.cancel" /></a>
 			</div>
 		</form:form>
 	</div>

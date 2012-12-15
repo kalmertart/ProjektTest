@@ -2,33 +2,92 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
 <pr:Layout>
-	<h1>Add Border Station</h1>
 	<div class="hero-unit">
+		<h1>
+			<spring:message code="borderStation.add.heading" />
+		</h1>
+	</div>
+	<div id="formdiv">
 		<form:form action="add" method="POST" modelAttribute="borderStation">
-			<table>
-				<tr>
-					<td><form:label path="name">Name: </form:label></td>
-					<td><form:input path="name" /></td>
-					<td><form:errors path="name" /></td>
-				</tr>
-				<tr>
-					<td><form:label path="address">Address: </form:label></td>
-					<td><form:input path="address" /></td>
-					<td><form:errors path="address" /></td>
-				</tr>
-				<tr>
-					<td><form:label path="guardCount">Amount of guards: </form:label></td>
-					<td><form:input path="guardCount" /></td>
-					<td><form:errors path="guardCount" /></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td><input type="submit" value="Add Border Station" class="btn btn-primary btn-larg" /></td>
-				</tr>
-			</table>
+			<div>
+				<div id="leftpanel">
+					<table>
+						<tr>
+							<td><form:label path="code">
+									<spring:message code="borderStation.field.code" />
+								</form:label></td>
+						</tr>
+						<tr>
+							<td><form:input path="code" /></td>
+						</tr>
+						<tr>
+							<td><form:errors path="code" /></td>
+						</tr>
+						<tr>
+							<td><form:label path="latitude">
+									<spring:message code="borderStation.field.latitude" />
+								</form:label></td>
+						</tr>
+						<tr>
+							<td><form:input path="latitude" /></td>
+						</tr>
+						<tr>
+							<td><form:errors path="latitude" /></td>
+						</tr>
+					</table>
+				</div>
+				<div class="rightpanel">
+					<table>
+						<tr>
+							<td><form:label path="name">
+									<spring:message code="borderStation.field.name" />
+								</form:label></td>
+						</tr>
+						<tr>
+							<td><form:input path="name" /></td>
+						</tr>
+						<tr>
+							<td><form:errors path="name" /></td>
+						</tr>
+						<tr>
+							<td><form:label path="longitude">
+									<spring:message code="borderStation.field.longitude" />
+								</form:label></td>
+						</tr>
+						<tr>
+							<td><form:input path="longitude" /></td>
+						</tr>
+						<tr>
+							<td><form:errors path="longitude" /></td>
+						</tr>
+					</table>
+				</div>
+				<div class="rightpanel">
+					<table>
+						<tr>
+							<td><form:label path="elevation">
+									<spring:message code="borderStation.field.elevation" />
+								</form:label></td>
+						</tr>
+						<tr>
+							<td><form:input path="elevation" /></td>
+						</tr>
+						<tr>
+							<td><form:errors path="elevation" /></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<div id="commentpanel">
+				<form:textarea path="comment" name="comments" cols="100" 
+									rows="3"></form:textarea>
+			</div>
+			<div id="buttonspanel">
+				<input type="submit" value="<spring:message code="entity.button.save" />" class="btn btn-success " /> 
+				<a class="btn btn-default" href="<c:url value="/borderStation/view"/>"><spring:message code="entity.button.cancel" /></a>
+			</div>
 		</form:form>
 	</div>
 </pr:Layout>
