@@ -1,6 +1,7 @@
 package ee.itcollege.borderproject.common;
 
 import java.lang.reflect.ParameterizedType;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -54,10 +55,8 @@ public abstract class CrudDaoJpa<T extends BaseEntity> {
 		try {
 			em.getTransaction().begin();			
 			T entity = em.find(entityClass, id);
-			
-			if (entity != null)
-				em.remove(entity);
-			
+			entity.setRemoved(new Date());
+			em.merge(entity);
 			em.getTransaction().commit();
 		} 
 		finally {

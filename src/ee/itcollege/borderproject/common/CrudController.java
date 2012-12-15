@@ -33,7 +33,11 @@ public abstract class CrudController<T extends BaseEntity> {
 	protected abstract T find(Integer entityId);
 	protected abstract void update(T entity);
 	
+	private static final String ADD = "/add";
 	private static final String VIEW = "/view";
+	private static final String UPDATE = "/update";
+	private static final String DELETE = "/delete";
+	private static final String ID = "id";
 	
 	public CrudController() {
 		entityClass = figureOutPersistentClass();
@@ -66,13 +70,13 @@ public abstract class CrudController<T extends BaseEntity> {
 		return listingView;
 	}
 
-	@RequestMapping(value = "/add", method = RequestMethod.GET)
+	@RequestMapping(value = ADD, method = RequestMethod.GET)
 	public String add(Model model) {
 		model.addAttribute(getNewEntity());
 		return addingView;
 	}
 
-	@RequestMapping(value = "/add", method = RequestMethod.POST)
+	@RequestMapping(value = ADD, method = RequestMethod.POST)
 	public String addReceive(Model model,
 			@ModelAttribute @Valid T entity, BindingResult result) {		
 		
@@ -83,9 +87,9 @@ public abstract class CrudController<T extends BaseEntity> {
 		return getRedirectionToListing();
 	}
 	
-	@RequestMapping(value = "/update", method = RequestMethod.GET)
+	@RequestMapping(value = UPDATE, method = RequestMethod.GET)
 	public String update(Model model,
-			@RequestParam(required=true, value="id") Integer entityId) {		
+			@RequestParam(required=true, value = ID) Integer entityId) {		
 		
 		T entity = find(entityId);
 		
@@ -96,11 +100,10 @@ public abstract class CrudController<T extends BaseEntity> {
 		return updatingView;
 	}
 	
-	@RequestMapping(value = "/update", method = RequestMethod.POST)
+	@RequestMapping(value = UPDATE, method = RequestMethod.POST)
 	public String receiveUpdate(Model model,
 			@ModelAttribute @Valid T entity, BindingResult result) {				
-		System.out.println("SIGA2");
-
+		
 		if(result.hasErrors())
 			return updatingView;
 		
@@ -108,9 +111,9 @@ public abstract class CrudController<T extends BaseEntity> {
 		return getRedirectionToListing();
 	}
 	
-	@RequestMapping(value = "/delete", method = RequestMethod.GET)
+	@RequestMapping(value = DELETE, method = RequestMethod.GET)
 	public String delete(Model model,
-			@RequestParam(required=true, value="id") Integer entityId) {		
+			@RequestParam(required=true, value = ID) Integer entityId) {		
 		
 		delete(entityId);	
 		return getRedirectionToListing();

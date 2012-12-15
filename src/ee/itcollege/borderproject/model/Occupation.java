@@ -15,7 +15,7 @@ import ee.itcollege.borderproject.common.BaseEntity;
 @Entity
 @Table(name = "Amet")
 @NamedQueries({
-	@NamedQuery(name = "Occupation.findAll", query = "SELECT o FROM Occupation o")
+	@NamedQuery(name = "Occupation.findAll", query = "SELECT o FROM Occupation o WHERE o.removed IS null")
 })
 public class Occupation extends BaseEntity implements Serializable {
 	
