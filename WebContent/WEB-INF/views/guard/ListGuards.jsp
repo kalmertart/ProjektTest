@@ -6,35 +6,35 @@
 	<div class="hero-unit">
 		<h1><spring:message code="guard.plural" /></h1>
 	</div>
-	<table class="listingtable">
-		<tr>
-			<th><h4><spring:message code="entity.field.id" /></h4></th>
-			<th><h4><spring:message code="guard.field.socialSecurityNumber" /></h4></th>
-			<th><h4><spring:message code="guard.field.soldiersCode" /></h4></th>
-			<th><h4><spring:message code="guard.field.firstName" /></h4></th>
-			<th><h4><spring:message code="guard.field.lastName" /></h4></th>
-		</tr>
-		<c:forEach items="${guards}" var="guard">
+	<div id="hor-minimalist-b">
+		<table class="listingtable">
 			<tr>
-				<td>${guard.id}</td>
-				<td>${guard.socialSecurityNumber}</td>
-				<td>${guard.soldiersCode}</td>
-				<td>${guard.firstName}</td>
-				<td>${guard.lastName}</td>
-				<td>
-					<i class="icon-th-list"></i>
-					<a href="<c:url value="/guard/update?id=${guard.id}" ></c:url>">
-						<spring:message code="entity.button.update" />
-					</a>
-				</td>
-				<td>
-					<i class="icon-trash"></i>
-					<a href="<c:url value="/guard/delete?id=${guard.id}"/>">
-						<spring:message code="entity.button.delete" />
-					</a>
-				</td>
+				<th><h4><spring:message code="entity.field.id" /></h4></th>
+				<th><h4><spring:message code="guard.field.socialSecurityNumber" /></h4></th>
+				<th><h4><spring:message code="guard.field.soldiersCode" /></h4></th>
+				<th><h4><spring:message code="guard.field.firstName" /></h4></th>
+				<th><h4><spring:message code="guard.field.lastName" /></h4></th>
 			</tr>
-		</c:forEach>
-	</table>
-	<a class="btn btn-inverse" href="<c:url value="/guard/add"/>"><spring:message code="entity.add.new" /></a> 
+			<c:forEach items="${guards}" var="guard">
+				<tr>
+					<td>${guard.id}</td>
+					<td>${guard.socialSecurityNumber}</td>
+					<td>${guard.soldiersCode}</td>
+					<td>${guard.firstName}</td>
+					<td>${guard.lastName}</td>
+					<td>
+						<a href="<c:url value="/guard/update?id=${guard.id}" ></c:url>">
+							<spring:message code="entity.button.update" />
+						</a>
+					</td>
+					<td>
+						<a href="<c:url value="/guard/delete?id=${guard.id}"/>">
+							<spring:message code="entity.button.delete" />
+						</a>
+					</td>
+				</tr>
+			</c:forEach>
+		</table>
+		<a class="btn btn-inverse" href="<c:url value="/guard/add"/>"><spring:message code="entity.add.new" /></a>
+	</div>
 </pr:Layout>

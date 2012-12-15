@@ -28,7 +28,31 @@
 	clear: both;
 }
 
-#listingtable td, th {
+#listingtable td {
 	padding:15px;
 }
 
+#listingtable th {
+	padding-right: 15px; 
+}
+
+#hor-minimalist-b
+{
+	margin: 45px;
+	width: 480px;
+	border-collapse: collapse;
+	text-align: left;
+}
+#hor-minimalist-b th
+{
+	font-weight: normal;
+	padding: 10px 8px;
+}
+#hor-minimalist-b td
+{
+	padding: 6px 8px;
+}
+#hor-minimalist-b a
+{
+	padding: 6px 8px;
+}
