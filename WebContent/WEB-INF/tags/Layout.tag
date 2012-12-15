@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Team 11 | Border project</title>
+<title><spring:message code="main.title"/></title>
 <link href="./css/bootstrap.min.css" rel="stylesheet">
 <link href="../css/bootstrap.min.css" rel="stylesheet">
 <meta charset="ISO-8859-1">
@@ -16,14 +16,14 @@
 				<a class="btn btn-navbar" data-toggle="collapse"
 					data-target=".nav-collapse"> <span class="icon-bar"></span> <span
 					class="icon-bar"></span> <span class="icon-bar"></span>
-				</a> <a class="brand" href="#">Piirivalve</a>
+				</a> <a class="brand" href="#"><spring:message code="borderservice"/></a>
 				<div class="nav-collapse collapse">
 					<ul class="nav">
-						<li><a href="<c:url value="/guard/view"/>">Piirivalvur</a></li>
-						<li><a href="<c:url value="/borderStation/view"/>">Piiripunkt</a></li>
-						<li><a href="<c:url value="/occupation/view"/>">Amet</a></li>
-						<li><a href="<c:url value="/occupationInBorderStation/view"/>">Amet piiripunktis</a></li>
-						<li><a href="<c:url value="/guardInBorderStation/view"/>">Piirivalvur piiripunktis</a></li>
+						<li><a href="<c:url value="/guard/view"/>"><spring:message code="guard"/></a></li>
+						<li><a href="<c:url value="/borderStation/view"/>"><spring:message code="borderStation"/></a></li>
+						<li><a href="<c:url value="/occupation/view"/>"><spring:message code="occupation"/></a></li>
+						<li><a href="<c:url value="/occupationInBorderStation/view"/>"><spring:message code="occupationInBorderStation"/></a></li>
+						<li><a href="<c:url value="/guardInBorderStation/view"/>"><spring:message code="guardInBorderStation"/></a></li>
 					</ul>
 				</div>
 			</div>

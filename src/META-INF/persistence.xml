@@ -14,6 +14,18 @@
 			<!-- Hibernate configuration -->
 			<property name="hibernate.show_sql" value="true" />
 			<property name="hibernate.format_sql" value="true" />
+			
+			<!-- TopLink -->
+<!-- 			<property name="toplink.target-database" value="HSQL"/> -->
+<!-- 			<property name="toplink.jdbc.url" value="jdbc:hsqldb:file:Team11BorderDb"/> -->
+<!-- 			<property name="toplink.jdbc.driver" value="org.hsqldb.jdbc.JDBCDriver"/> -->
+<!-- 			<property name="toplink.jdbc.url" value="sa"/> -->
+<!-- 			<property name="toplink.jdbc.password" value=""/> -->
+<!-- 			<property name="toplink.application-location" value="."/> -->
+<!-- 			<property name="toplink.ddl-generation" value="create-tables"/> -->
+<!-- 			<property name="toplink.ddl-generation.output-mod" value="both"/> -->
+<!-- 			<property name="toplink.create-ddl-jdbc-file-name"  -->
+<!-- 				value="WEB-INF/classes/schema.sql"/> -->
 		</properties>
 	</persistence-unit>
 </persistence>
