@@ -93,7 +93,7 @@ public abstract class CrudController<T extends BaseEntity> {
 		
 		T entity = find(entityId);
 		
-		if (entity == null) 
+		if (entity == null || entity.getRemoved() != null) 
 			return getRedirectionToListing();
 
 		model.addAttribute(entity);
