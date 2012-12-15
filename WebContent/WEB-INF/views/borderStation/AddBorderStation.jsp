@@ -67,6 +67,15 @@
 				<div class="rightpanel">
 					<table>
 						<tr>
+							<td>&nbsp;</td>
+						</tr>
+						<tr>
+							<td style="padding-bottom: 6px">&nbsp;</td>
+						</tr>
+						<tr>
+							<td>&nbsp;</td>
+						</tr>
+						<tr>
 							<td><form:label path="elevation">
 									<spring:message code="borderStation.field.elevation" />
 								</form:label></td>

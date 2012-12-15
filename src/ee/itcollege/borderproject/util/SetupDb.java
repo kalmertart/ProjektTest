@@ -36,8 +36,6 @@ public class SetupDb {
 				List<String> statements = statementList( SQL_BUILD_SCRIPT );
 				executeSqlStatements( statements );
 			}
-			
-			System.out.println( isDatabaseEmpty(connection) );
 		}
 		finally {
 			if( connection != null ){

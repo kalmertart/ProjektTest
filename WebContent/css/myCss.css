@@ -11,6 +11,11 @@
 	margin-right: 15px;
 }
 
+.guardComment {
+	height: 92px;
+	width: 500px;
+}
+
 #formdiv {
 	margin-left: 60px;
 }

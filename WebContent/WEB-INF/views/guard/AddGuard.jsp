@@ -118,7 +118,7 @@
 							<td><form:label path="comment"><spring:message code="entity.field.comment" /></form:label></td>
 						</tr>
 						<tr>
-							<td><form:textarea path="comment" name="comments" cols="100"
+							<td><form:textarea path="comment" name="comments" cols="100" class="guardComment"
 									rows="3"></form:textarea></td>
 						</tr>
 						<tr>
