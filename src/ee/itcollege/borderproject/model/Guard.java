@@ -1,14 +1,13 @@
 package ee.itcollege.borderproject.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import ee.itcollege.borderproject.common.BaseEntity;
@@ -21,10 +20,6 @@ import ee.itcollege.borderproject.common.BaseEntity;
 public class Guard extends BaseEntity implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
-//	@Id
-//	@GeneratedValue( strategy = GenerationType.TABLE ) 
-//	private int id;
 	
 	@Column(name = "aadress")
 	private String address;
@@ -49,13 +44,8 @@ public class Guard extends BaseEntity implements Serializable {
 	@Column(name = "telefon")
 	private String phoneNumber;
 	
-//	public int getId() {
-//		return id;
-//	}
-	
-//	public void setId(int id) {
-//		this.id = id;  
-//	}
+	@OneToMany(mappedBy = "guard")
+	private List<GuardInBorderStation> guardInBorderStation;
 
 	public String getAddress() {
 		return address;
@@ -88,6 +78,10 @@ public class Guard extends BaseEntity implements Serializable {
 	public String getPhoneNumber() {
 		return phoneNumber;
 	}
+	
+	public List<GuardInBorderStation> getGuardInBorderStation() {
+		return guardInBorderStation;
+	}
 
 	public void setAddress(String address) {
 		this.address = address;
@@ -119,5 +113,10 @@ public class Guard extends BaseEntity implements Serializable {
 
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
+	}
+	
+	public void setGuardInBorderStation(
+			List<GuardInBorderStation> guardInBorderStation) {
+		this.guardInBorderStation = guardInBorderStation;
 	}
 }
