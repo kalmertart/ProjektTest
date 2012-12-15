@@ -1,22 +1,24 @@
 package ee.itcollege.borderproject.model;
 
-import java.util.Date;
+import java.io.Serializable;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+
+import ee.itcollege.borderproject.common.BaseJoinEntity;
 
 @Entity
 @Table(name = "AmetPiiripunktis")
-public class OccupationInBorderStation {
+@NamedQueries({
+	@NamedQuery(name = "OccupationInBorderStation.findAll", query = "SELECT o FROM OccupationInBorderStation o")
+})
+public class OccupationInBorderStation extends BaseJoinEntity implements Serializable{
 	
-	@Column(name = "Alates")
-	private Date start;
-	
-	@Column(name = "Kuni")
-	private Date end;
+	private static final long serialVersionUID = 1L;
 	
 	@ManyToOne
 	@JoinColumn(name = "Amet_Id")
@@ -26,28 +28,12 @@ public class OccupationInBorderStation {
 	@JoinColumn(name = "Piiripunkt_Id")
 	private BorderStation borderStation;
 	
-	public Date getStart() {
-		return start;
-	}
-	
-	public Date getEnd() {
-		return end;
-	}
-	
 	public Occupation getOccupation() {
 		return occupation;
 	}
 	
 	public BorderStation getBorderStation() {
 		return borderStation;
-	}
-	
-	public void setStart(Date start) {
-		this.start = start;
-	}
-	
-	public void setEnd(Date end) {
-		this.end = end;
 	}
 	
 	public void setOccupation(Occupation occupation) {

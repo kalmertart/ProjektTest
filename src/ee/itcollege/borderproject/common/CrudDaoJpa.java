@@ -66,7 +66,8 @@ public abstract class CrudDaoJpa<T extends BaseEntity> {
 	}
 	
     private Class<T> figureOutPersistentClass() {
-        Class<T> clazz = (Class<T>)((ParameterizedType) (getClass().getGenericSuperclass())).getActualTypeArguments()[0];
+        @SuppressWarnings("unchecked")
+		Class<T> clazz = (Class<T>)((ParameterizedType) (getClass().getGenericSuperclass())).getActualTypeArguments()[0];
         return clazz;
     }
     

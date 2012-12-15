@@ -1,0 +1,29 @@
+package ee.itcollege.borderproject.dao.impl;
+
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
+
+import ee.itcollege.borderproject.common.CrudDaoJpa;
+import ee.itcollege.borderproject.dao.OccupationInBorderStationDao;
+import ee.itcollege.borderproject.model.OccupationInBorderStation;
+
+public class OccupationInBorderStationDaoJpa extends CrudDaoJpa<OccupationInBorderStation> implements OccupationInBorderStationDao {
+
+	@Override
+	public List<OccupationInBorderStation> getAll() {
+		EntityManager entityManager = entityManagerFactory.createEntityManager();
+		
+		try {
+			TypedQuery<OccupationInBorderStation> query = 
+					entityManager.createNamedQuery("OccupationInBorderStation.findAll", OccupationInBorderStation.class);
+			
+			return query.getResultList();
+		}
+		finally {
+			entityManager.close();
+		}
+	}
+
+}

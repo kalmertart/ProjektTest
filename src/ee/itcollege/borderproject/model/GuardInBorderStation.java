@@ -1,23 +1,26 @@
 package ee.itcollege.borderproject.model;
 
-import java.util.Date;
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+
+import ee.itcollege.borderproject.common.BaseJoinEntity;
 
 @Entity
 @Table(name = "Piirivalvurpiiripunktis")
-public class GuardInBorderStation {
-
-	@Column(name = "Alates")
-	private Date start;
+@NamedQueries({
+	@NamedQuery(name = "GuardInBorderStation.findAll", query = "SELECT g FROM GuardInBorderStation g")
+})
+public class GuardInBorderStation extends BaseJoinEntity implements Serializable {
 	
-	@Column(name = "Kuni")
-	private Date end;
+	private static final long serialVersionUID = 5376653039415829163L;
 	
 	@Column(name = "Koormus")
 	private double workTime;
@@ -25,14 +28,6 @@ public class GuardInBorderStation {
 	@ManyToMany
 	@JoinColumn(name = "Piirivalvur_Id")
 	private List<Guard> guard;
-
-	public Date getStart() {
-		return start;
-	}
-
-	public Date getEnd() {
-		return end;
-	}
 	
 	public double getWorkTime() {
 		return workTime;
@@ -40,14 +35,6 @@ public class GuardInBorderStation {
 	
 	public List<Guard> getGuard() {
 		return guard;
-	}
-
-	public void setStart(Date start) {
-		this.start = start;
-	}
-
-	public void setEnd(Date end) {
-		this.end = end;
 	}
 	
 	public void setWorkTime(double workTime) {

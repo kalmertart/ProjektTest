@@ -1,16 +1,26 @@
 package ee.itcollege.borderproject.model;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import ee.itcollege.borderproject.common.BaseEntity;
+
 @Entity
 @Table(name = "Amet")
-public class Occupation {
+@NamedQueries({
+	@NamedQuery(name = "Occupation.findAll", query = "SELECT o FROM Occupation o")
+})
+public class Occupation extends BaseEntity implements Serializable {
 	
+	private static final long serialVersionUID = 1L;
+
 	@Column(name = "IscoKood")
 	private String iscoCode;
 	

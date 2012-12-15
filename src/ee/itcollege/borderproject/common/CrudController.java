@@ -129,7 +129,8 @@ public abstract class CrudController<T extends BaseEntity> {
 	}
 	
 	private Class<T> figureOutPersistentClass() {
-        Class<T> clazz = (Class<T>)((ParameterizedType) 
+        @SuppressWarnings("unchecked")
+		Class<T> clazz = (Class<T>)((ParameterizedType) 
         		(getClass().getGenericSuperclass())).getActualTypeArguments()[0];
         return clazz;
     }

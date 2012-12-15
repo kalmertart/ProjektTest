@@ -1,16 +1,26 @@
 package ee.itcollege.borderproject.model;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import ee.itcollege.borderproject.common.BaseEntity;
+
 @Entity
 @Table(name = "Piiripunkt")
-public class BorderStation {
+@NamedQueries({
+	@NamedQuery(name = "BorderStation.findAll", query = "SELECT b FROM BorderStation b")
+})
+public class BorderStation extends BaseEntity implements Serializable{
 	
+	private static final long serialVersionUID = 1831045952199616355L;
+
 	@Column(name = "GpsLaiuskraad")
 	private double latitude;
 	
