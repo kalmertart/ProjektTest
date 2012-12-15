@@ -5,10 +5,13 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
+import org.springframework.stereotype.Repository;
+
 import ee.itcollege.borderproject.common.CrudDaoJpa;
 import ee.itcollege.borderproject.dao.GuardInBorderStationDao;
 import ee.itcollege.borderproject.model.GuardInBorderStation;
 
+@Repository
 public class GuardInBorderStationDaoJpa extends CrudDaoJpa<GuardInBorderStation> implements GuardInBorderStationDao{
 
 	@Override

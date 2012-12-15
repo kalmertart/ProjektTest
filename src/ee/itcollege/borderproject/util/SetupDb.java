@@ -19,11 +19,12 @@ import org.springframework.stereotype.Component;
 public class SetupDb {
 	
 	private static final String SQL_COMMENT = "--";
-	private static final String SQL_BUILD_SCRIPT = 
-			"C:/Code/Java/workspace_team11_project/ProjektTest/WebContent/WEB-INF/resources/Piirivalve.script";
+	private static final String DATABASE_CHECK = "SELECT count(*) FROM information_schema.system_tables WHERE table_name = 'AMET';";
+	private static final String SQL_BUILD_SCRIPT = "D:/Java Workspace/Projekt_11/ProjektTest/WebContent/WEB-INF/resources/Piirivalve.script";
 		// Kalmer: 	"D:/Java Workspace/Projekt_11/ProjektTest/WebContent/WEB-INF/resources/Piirivalve.script";
 		// Martin:	C:/Code/Java/workspace_team11_project/ProjektTest/WebContent/WEB-INF/resources/Piirivalve.script
 	private static final String CONNECTION_URL = "jdbc:hsqldb:file:Team11BorderDb";
+	private static final String DRIVER_CLASS = "org.hsqldb.jdbcDriver";
 	
 	@PostConstruct
 	public void createTables() throws SQLException, ClassNotFoundException, IOException {
@@ -57,13 +58,13 @@ public class SetupDb {
 	}
 	
 	public Connection createConnection() throws SQLException, ClassNotFoundException {
-		Class.forName("org.hsqldb.jdbcDriver");
+		Class.forName( DRIVER_CLASS );
 		return DriverManager.getConnection( CONNECTION_URL );
 	}
 	
 	private boolean isDatabaseEmpty(Connection conn) throws SQLException {
 		Statement statement = conn.createStatement();
-		ResultSet result = statement.executeQuery("SELECT count(*) FROM information_schema.system_tables WHERE table_name = 'AMET';");
+		ResultSet result = statement.executeQuery( DATABASE_CHECK );
 		result.next();
 		int tableCount = result.getInt(1);
 		return tableCount == 0;
