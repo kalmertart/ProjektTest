@@ -1,0 +1,34 @@
+.hello {
+	text-decoration: underline;
+}
+
+.body {
+	display: none;
+}
+
+.btn {
+	margin-top: 20px;
+	margin-right: 15px;
+}
+
+#formdiv {
+	margin-left: 60px;
+}
+
+#leftpanel {
+	float: left;
+}
+
+#rightpanel {
+	margin-left:50px;
+	float: left;
+}
+
+#buttonspanel {
+	clear: both;
+}
+
+#listingtable td, th {
+	padding:15px;
+}
+
