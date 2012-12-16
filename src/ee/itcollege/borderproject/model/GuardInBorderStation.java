@@ -7,6 +7,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -25,15 +26,23 @@ public class GuardInBorderStation extends BaseJoinEntity implements Serializable
 	@Column(name = "Koormus")
 	private double workTime;
 	
-	@ManyToMany
+	@ManyToOne
 	@JoinColumn(name = "Piirivalvur_Id")
-	private List<Guard> guard;
+	private Guard guard;
+	
+	@ManyToOne
+	@JoinColumn(name = "Piiripunkt_Id")
+	private BorderStation borderStation;
 	
 	public double getWorkTime() {
 		return workTime;
 	}
 	
-	public List<Guard> getGuard() {
+	public BorderStation getBorderStation() {
+		return borderStation;
+	}
+
+	public Guard getGuard() {
 		return guard;
 	}
 	
@@ -41,7 +50,11 @@ public class GuardInBorderStation extends BaseJoinEntity implements Serializable
 		this.workTime = workTime;
 	}
 	
-	public void setGuard(List<Guard> guard) {
+	public void setGuard(Guard guard) {
 		this.guard = guard;
+	}
+
+	public void setBorderStation(BorderStation borderStation) {
+		this.borderStation = borderStation;
 	}
 }
