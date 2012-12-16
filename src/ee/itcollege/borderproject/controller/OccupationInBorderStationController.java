@@ -24,6 +24,8 @@ public class OccupationInBorderStationController extends CrudController<Occupati
 	private static final String ADD_OCCUPATION_IN_BORDER_STATION = "occupationInBorderStation/AddOccupationInBorderStation";
 	private static final String UPDATE_OCCUPATION_IN_BORDR_STATION = "occupationInBorderStation/UpdateOccupationInBorderStation";
 	private static final String OCCUPATION_IN_BORDER_STATION_ATTRIBUTE = "occupationInBorderStation";
+	private static final String BORDERSTATION_ATTRIBUTE = "borderStations";
+	private static final String OCCUPATION_ATTRIBUTE = "occupations";
 	
 	public OccupationInBorderStationController() {
 		super();
@@ -69,8 +71,8 @@ public class OccupationInBorderStationController extends CrudController<Occupati
 	
 	@RequestMapping(value = ADD, method = RequestMethod.GET)
 	public String add(Model model) {
-		model.addAttribute( "occupations", occupationDao.getAll() );
-		model.addAttribute( "borderStations", borderStationDao.getAll() );
+		model.addAttribute( OCCUPATION_ATTRIBUTE, occupationDao.getAll() );
+		model.addAttribute( BORDERSTATION_ATTRIBUTE, borderStationDao.getAll() );
 		return super.add( model );
 	}
 	
@@ -78,8 +80,8 @@ public class OccupationInBorderStationController extends CrudController<Occupati
 	public String update(Model model,
 			@RequestParam(required=true, value = ID) Integer entityId)
 	{
-		model.addAttribute( "occupations", occupationDao.getAll() );
-		model.addAttribute( "borderStations", borderStationDao.getAll() );
+		model.addAttribute( OCCUPATION_ATTRIBUTE, occupationDao.getAll() );
+		model.addAttribute( BORDERSTATION_ATTRIBUTE, borderStationDao.getAll() );
 		return super.update( model, entityId );
 	}
 }

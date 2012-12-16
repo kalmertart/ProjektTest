@@ -24,6 +24,8 @@ public class GuardInBorderStationController extends CrudController<GuardInBorder
 	private static final String ADD_GUARD_IN_BORDERSTATION = "guardInBorderStation/AddGuardInBorderStation";
 	private static final String UPDATE_GUARD_IN_BORDERSTATION = "guardInBorderStation/UpdateGuardInBorderStation";
 	private static final String GUARD_IN_BORDERSTATION_ATTRIBUTE = "guardInBorderStation";
+	private static final String GUARD_ATTRIBUTE = "guards";
+	private static final String BORDERSTATION_ATTRIBUTE = "borderStations";
 	
 	public GuardInBorderStationController() {
 		super();
@@ -68,8 +70,8 @@ public class GuardInBorderStationController extends CrudController<GuardInBorder
 	
 	@RequestMapping(value = ADD, method = RequestMethod.GET)
 	public String add(Model model) {
-		model.addAttribute( "guards", guardDao.getAll() );
-		model.addAttribute( "borderStations", borderStationDao.getAll() );
+		model.addAttribute( GUARD_ATTRIBUTE, guardDao.getAll() );
+		model.addAttribute( BORDERSTATION_ATTRIBUTE, borderStationDao.getAll() );
 		return super.add( model );
 	}
 	
@@ -77,8 +79,8 @@ public class GuardInBorderStationController extends CrudController<GuardInBorder
 	public String update(Model model,
 			@RequestParam(required=true, value = ID) Integer entityId)
 	{
-		model.addAttribute( "guards", guardDao.getAll() );
-		model.addAttribute( "borderStations", borderStationDao.getAll() );
+		model.addAttribute( GUARD_ATTRIBUTE, guardDao.getAll() );
+		model.addAttribute( BORDERSTATION_ATTRIBUTE, borderStationDao.getAll() );
 		return super.update( model, entityId );
 	}
 }
