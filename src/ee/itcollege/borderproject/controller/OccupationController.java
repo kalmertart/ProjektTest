@@ -21,12 +21,10 @@ public class OccupationController extends CrudController<Occupation>{
 	private static final String LIST_OCCUPATIONS_VIEW = "occupation/ListOccupations";
 	private static final String ADD_OCCUPATION_VIEW = "occupation/AddOccupation";
 	private static final String UPDATE_OCCUPATION_VIEW = "occupation/UpdateOccupation";
-	private static final String OCCUPATION_CRUD_ROOT = "occupation";
 	private static final String OCCUPATIONS_ATTRIBUTE = "occupations";
 
 	public OccupationController() {
 		super();
-		super.setRoot(OCCUPATION_CRUD_ROOT);
 		super.setAddingView(ADD_OCCUPATION_VIEW);
 		super.setListingView(LIST_OCCUPATIONS_VIEW);
 		super.setUpdatingView(UPDATE_OCCUPATION_VIEW);

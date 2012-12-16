@@ -23,7 +23,6 @@ public abstract class CrudController<T extends BaseEntity> {
 	private String addingView;
 	private String listingView;
 	private String updatingView;
-	private String root;
 	private String listingAttribute;
 	
 	protected abstract void save(T entity);
@@ -53,10 +52,6 @@ public abstract class CrudController<T extends BaseEntity> {
 	
 	public void setUpdatingView(String updatingView) {
 		this.updatingView = updatingView;
-	}
-	
-	public void setRoot(String root) {
-		this.root = root;
 	}
 	
 	public void setListingAttribute(String listingAttribute) {
@@ -128,7 +123,7 @@ public abstract class CrudController<T extends BaseEntity> {
 	}
 	
 	private String getRedirectionToListing() {
-		return MessageFormat.format("redirect:/{0}/view", root);
+		return "redirect:view";
 	}
 	
 	private Class<T> figureOutPersistentClass() {

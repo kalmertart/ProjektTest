@@ -18,7 +18,6 @@ public class BorderStationController extends CrudController<BorderStation> {
 	private static final String LIST_BORDERSTATIONS_VIEW = "borderStation/ListBorderStations";
 	private static final String ADD_BORDERSTATION_VIEW = "borderStation/AddBorderStation";
 	private static final String UPDATE_BORDERSTATION_VIEW = "borderStation/UpdateBorderStation";
-	private static final String BORDERSTATION_CRUD_ROOT = "borderStation";
 	private static final String BORDERSTATIONS_ATTRIBUTE = "borderStations";
 	
 	@Resource
@@ -26,7 +25,6 @@ public class BorderStationController extends CrudController<BorderStation> {
 	
 	public BorderStationController() {
 		super();
-		super.setRoot(BORDERSTATION_CRUD_ROOT);
 		super.setAddingView(ADD_BORDERSTATION_VIEW);
 		super.setListingView(LIST_BORDERSTATIONS_VIEW);
 		super.setUpdatingView(UPDATE_BORDERSTATION_VIEW);

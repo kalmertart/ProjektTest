@@ -21,12 +21,10 @@ public class GuardController extends CrudController<Guard> {
 	private static final String LIST_GUARDS_VIEW = "guard/ListGuards";
 	private static final String ADD_GUARD_VIEW = "guard/AddGuard";
 	private static final String UPDATE_GUARD_VIEW = "guard/UpdateGuard";
-	private static final String GUARD_CRUD_ROOT = "guard";
 	private static final String GUARDS_ATTRIBUTE = "guards";
 
 	public GuardController() {
 		super();
-		super.setRoot(GUARD_CRUD_ROOT);
 		super.setAddingView(ADD_GUARD_VIEW);
 		super.setListingView(LIST_GUARDS_VIEW);
 		super.setUpdatingView(UPDATE_GUARD_VIEW);
