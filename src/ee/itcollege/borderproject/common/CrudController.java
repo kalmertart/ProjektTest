@@ -18,7 +18,7 @@ import ee.itcollege.borderproject.common.BaseEntity;
 
 public abstract class CrudController<T extends BaseEntity> {
 		
-    private Class<T> entityClass;
+	private Class<T> entityClass;
 	
 	private String addingView;
 	private String listingView;

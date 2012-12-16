@@ -13,7 +13,7 @@ public abstract class CrudDaoJpa<T extends BaseEntity> {
 	protected EntityManagerFactory entityManagerFactory = Persistence
 			.createEntityManagerFactory("Team11BorderDb");
 	
-    private Class<T> entityClass = figureOutPersistentClass();
+	private Class<T> entityClass = figureOutPersistentClass();
     
 	public void save(T entity) {
 		EntityManager entityManager = entityManagerFactory.createEntityManager();
@@ -51,17 +51,9 @@ public abstract class CrudDaoJpa<T extends BaseEntity> {
 	}
 
 	public void delete(Integer id) {
-		EntityManager em = entityManagerFactory.createEntityManager();
-		try {
-			em.getTransaction().begin();			
-			T entity = em.find(entityClass, id);
-			entity.setRemoved(new Date());
-			em.merge(entity);
-			em.getTransaction().commit();
-		} 
-		finally {
-			em.close();
-		}
+		T entity = find(id);
+		entity.setRemoved(new Date());
+		update(entity);
 	}
 	
     private Class<T> figureOutPersistentClass() {
