@@ -4,7 +4,7 @@
 
 <pr:Layout>
 	<div class="hero-unit">
-		<h1><spring:message code="guard.plural" /></h1>
+		<h1><spring:message code="borderStation.plural" /></h1>
 	</div>
 	<div id="hor-minimalist-b">
 		<table >

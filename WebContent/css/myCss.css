@@ -16,6 +16,11 @@
 	width: 500px;
 }
 
+.borderStationComment {
+	width: 750px;
+	margin-top: 7px;
+}
+
 #formdiv {
 	margin-left: 60px;
 }
@@ -31,10 +36,6 @@
 
 #commentpanel {
 	clear: both;
-}
-
-#commentpanel textarea {
-	width: 90%;
 }
 
 #buttonspanel {

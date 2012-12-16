@@ -6,11 +6,12 @@
 <pr:Layout>
 	<div class="hero-unit">
 		<h1>
-			<spring:message code="borderStation.add.heading" />
+			<spring:message code="borderStation.update.heading" />
 		</h1>
 	</div>
 	<div id="formdiv">
-		<form:form action="add" method="POST" modelAttribute="borderStation">
+		<form:form action="update" method="POST" modelAttribute="borderStation">
+			<form:hidden path="id" />
 			<div>
 				<div id="leftpanel">
 					<table>
@@ -103,6 +104,7 @@
 			<div id="buttonspanel">
 				<input type="submit" value="<spring:message code="entity.button.save" />" class="btn btn-success " /> 
 				<a class="btn btn-default" href="<c:url value="/borderStation/view"/>"><spring:message code="entity.button.cancel" /></a>
+				<a class="btn btn-default" href="<c:url value="/borderStation/delete?id=${borderStation.id}"/>"><spring:message code="entity.button.delete" /></a>
 			</div>
 		</form:form>
 	</div>
