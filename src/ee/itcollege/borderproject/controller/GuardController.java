@@ -60,8 +60,6 @@ public class GuardController extends CrudController<Guard> {
 
 	@Override
 	protected void update(Guard entity) {
-		System.out.println("SIGA");
-		System.out.println(entity.getId());
 		guardDao.update(entity);
 	}
 

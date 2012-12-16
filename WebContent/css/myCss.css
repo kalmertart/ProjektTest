@@ -21,6 +21,11 @@
 	margin-top: 7px;
 }
 
+.occupationComment {
+	width: 400px;
+	height: 90px;
+}
+
 #formdiv {
 	margin-left: 60px;
 }

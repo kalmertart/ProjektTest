@@ -18,7 +18,7 @@
 				<a class="btn btn-navbar" data-toggle="collapse"
 					data-target=".nav-collapse"> <span class="icon-bar"></span> <span
 					class="icon-bar"></span> <span class="icon-bar"></span>
-				</a> <a class="brand" href="#"><spring:message code="borderservice"/></a>
+				</a> <a class="brand" href="<c:url value="/"/>"><spring:message code="borderservice"/></a>
 				<div class="nav-collapse collapse">
 					<ul class="nav">
 						<li><a href="<c:url value="/guard/view"/>"><spring:message code="guard.singular"/></a></li>
