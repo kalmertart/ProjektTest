@@ -23,11 +23,6 @@ public abstract class CrudDaoJpa<T extends BaseEntity> {
 		entityManager.close();
 	}
 
-	public void save(List<T> entities) {
-		for (T entity : entities)
-			save(entity);
-	}
-
 	public T find(Integer id) {
 		EntityManager em = entityManagerFactory.createEntityManager();
 		try {

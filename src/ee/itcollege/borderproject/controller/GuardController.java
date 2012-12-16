@@ -37,11 +37,6 @@ public class GuardController extends CrudController<Guard> {
 	}
 
 	@Override
-	protected void save(List<Guard> entities) {
-		guardDao.save(entities);
-	}
-
-	@Override
 	protected void delete(Integer entityId) {
 		guardDao.delete(entityId);
 	}

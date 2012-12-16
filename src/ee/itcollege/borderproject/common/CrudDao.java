@@ -8,8 +8,6 @@ public interface CrudDao<T> {
 
 	void save(T entity) ;
 	
-	void save(List<T> entities);
-	
 	T find(Integer id);
 	
 	void update(T entity);

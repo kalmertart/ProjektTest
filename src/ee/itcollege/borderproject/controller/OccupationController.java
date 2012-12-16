@@ -37,11 +37,6 @@ public class OccupationController extends CrudController<Occupation>{
 	}
 
 	@Override
-	protected void save(List<Occupation> entities) {
-		occupationDao.save(entities);
-	}
-
-	@Override
 	protected void delete(Integer entityId) {
 		occupationDao.delete(entityId);
 	}

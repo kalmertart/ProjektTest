@@ -1,7 +1,6 @@
 package ee.itcollege.borderproject.common;
 
 import java.lang.reflect.ParameterizedType;
-import java.text.MessageFormat;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -12,8 +11,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-
-import ee.itcollege.borderproject.common.BaseEntity;
 
 
 public abstract class CrudController<T extends BaseEntity> {
@@ -26,7 +23,6 @@ public abstract class CrudController<T extends BaseEntity> {
 	private String listingAttribute;
 	
 	protected abstract void save(T entity);
-	protected abstract void save(List<T> entities);
 	protected abstract void delete(Integer entityId);
 	protected abstract List<T> getAll();
 	protected abstract T find(Integer entityId);
@@ -131,6 +127,6 @@ public abstract class CrudController<T extends BaseEntity> {
 		Class<T> clazz = (Class<T>)((ParameterizedType) 
         		(getClass().getGenericSuperclass())).getActualTypeArguments()[0];
         return clazz;
-    }
+	}
 		
 }

@@ -37,11 +37,6 @@ public class BorderStationController extends CrudController<BorderStation> {
 	}
 
 	@Override
-	protected void save(List<BorderStation> entities) {
-		borderStationDao.save(entities);
-	}
-
-	@Override
 	protected void delete(Integer entityId) {
 		borderStationDao.delete(entityId);
 	}
