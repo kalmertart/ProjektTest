@@ -11,8 +11,8 @@
 			<table class="viewpanel">
 				<tr>
 					<th><h4><spring:message code="entity.field.id" /></h4></th>
-					<th><h4><spring:message code="occupationInBorderStation.field.occupation" /></h4></th>
 					<th><h4><spring:message code="occupationInBorderStation.field.borderStation" /></h4></th>
+					<th><h4><spring:message code="occupationInBorderStation.field.occupation" /></h4></th>
 				</tr>
 				<c:forEach items="${occupationInBorderStation}" var="occupationInBorderStation">
 					<tr>
