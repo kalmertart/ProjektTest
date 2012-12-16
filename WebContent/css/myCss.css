@@ -47,6 +47,11 @@
 	clear: both;
 }
 
+#errorspanel {
+	padding: 10px 10px 10px 10px;
+	color: red;
+}
+
 #listingtable td {
 	padding:15px;
 }

@@ -28,11 +28,11 @@ public abstract class CrudController<T extends BaseEntity> {
 	protected abstract T find(Integer entityId);
 	protected abstract void update(T entity);
 	
-	private static final String ADD = "/add";
-	private static final String VIEW = "/view";
-	private static final String UPDATE = "/update";
-	private static final String DELETE = "/delete";
-	private static final String ID = "id";
+	protected static final String ADD = "/add";
+	protected static final String VIEW = "/view";
+	protected static final String UPDATE = "/update";
+	protected static final String DELETE = "/delete";
+	protected static final String ID = "id";
 	
 	public CrudController() {
 		entityClass = figureOutPersistentClass();

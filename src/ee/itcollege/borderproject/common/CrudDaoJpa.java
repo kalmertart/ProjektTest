@@ -2,7 +2,6 @@ package ee.itcollege.borderproject.common;
 
 import java.lang.reflect.ParameterizedType;
 import java.util.Date;
-import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
