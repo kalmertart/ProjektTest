@@ -52,32 +52,31 @@
 	color: red;
 }
 
-#listingtable td {
+.viewpanel {
+	font-size: 15px;
+}
+
+.viewpanel th, td {
+	padding: 2px 10px 2px 20px !important;
+	text-align: left;
+}
+
+#listingtable th, td {
 	padding:15px;
 }
 
-
-#listingtable th {
-	padding-right: 15px; 
-}
-
-#hor-minimalist-b
-{
+#hor-minimalist-b {
 	margin: 45px;
 	width: 480px;
 	border-collapse: collapse;
 	text-align: left;
 }
-#hor-minimalist-b th
-{
+
+#hor-minimalist-b th {
 	font-weight: normal;
 	padding: 10px 8px;
 }
-#hor-minimalist-b td
-{
-	padding: 6px 8px;
-}
-#hor-minimalist-b a
-{
+
+#hor-minimalist-b td, a {
 	padding: 6px 8px;
 }
