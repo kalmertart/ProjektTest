@@ -19,12 +19,12 @@
 						<td>${occupationInBorderStation.id}</td>
 						<td>${occupationInBorderStation.borderStation.name}</td>
 						<td>${occupationInBorderStation.occupation.name}</td>
-						<td>
+						<td class="viewpanel">
 							<a href="<c:url value="/occupationInBorderStation/update?id=${occupationInBorderStation.id}" ></c:url>">
 								<spring:message code="entity.button.update" />
 							</a>
 						</td>
-						<td>
+						<td class="viewpanel">
 							<a href="<c:url value="/occupationInBorderStation/delete?id=${occupationInBorderStation.id}"/>">
 								<spring:message code="entity.button.delete" />
 							</a>

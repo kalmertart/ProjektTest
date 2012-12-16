@@ -34,5 +34,13 @@
 	<div class="container">
 		<jsp:doBody />
 	</div>
+	<footer class="footer">
+		<div class="container">
+			<hr />
+			<p>
+				<spring:message code="home.footer" />
+			</p>
+		</div>
+	</footer>
 </body>
 </html>
