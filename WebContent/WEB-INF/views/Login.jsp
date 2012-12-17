@@ -19,7 +19,7 @@
 				</tr>
 				<tr>
 					<td colspan='2'>
-						<input name="submit" type="submit" value='<spring:message code="login.login"/>' class="btn btn-primary btn-larg" />
+						<input name="submit" type="submit" value='<spring:message code="login.login"/>' class="btn btn-success" />
 					</td>
 				</tr>
 			</table>

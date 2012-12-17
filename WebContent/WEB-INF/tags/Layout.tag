@@ -1,5 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 
 <!DOCTYPE html>
 <html>
@@ -30,11 +31,17 @@
 				</a> <a class="brand" href="<c:url value="/"/>"><spring:message code="borderservice"/></a>
 				<div class="nav-collapse collapse">
 					<ul class="nav">
-						<li><a href="<c:url value="/guard/view"/>"><spring:message code="guard.singular"/></a></li>
-						<li><a href="<c:url value="/borderStation/view"/>"><spring:message code="borderStation.singular"/></a></li>
-						<li><a href="<c:url value="/occupation/view"/>"><spring:message code="occupation.singular"/></a></li>
-						<li><a href="<c:url value="/occupationInBorderStation/view"/>"><spring:message code="occupationInBorderStation.singular"/></a></li>
-						<li><a href="<c:url value="/guardInBorderStation/view"/>"><spring:message code="guardInBorderStation.singular"/></a></li>
+						<sec:authorize access="isAnonymous()">
+							<li><a href="<c:url value="/login"/>"><spring:message code="login.login"/></a></li>
+						</sec:authorize>
+						<sec:authorize access="hasAnyRole('ROLE_USER, ROLE_MODERATOR, ROLE_ADMIN')">
+							<li><a href="<c:url value="/guard/view"/>"><spring:message code="guard.singular"/></a></li>
+							<li><a href="<c:url value="/borderStation/view"/>"><spring:message code="borderStation.singular"/></a></li>
+							<li><a href="<c:url value="/occupation/view"/>"><spring:message code="occupation.singular"/></a></li>
+							<li><a href="<c:url value="/occupationInBorderStation/view"/>"><spring:message code="occupationInBorderStation.singular"/></a></li>
+							<li><a href="<c:url value="/guardInBorderStation/view"/>"><spring:message code="guardInBorderStation.singular"/></a></li>
+							<li><a href="<c:url value="/j_spring_security_logout"/>"><spring:message code="login.logout"/></a></li>
+						</sec:authorize>
 					</ul>
 				</div>
 			</div>
