@@ -44,7 +44,8 @@ public class GuardInBorderStationController extends CrudController<GuardInBorder
 	@Resource
 	GuardDao guardDao;
 	
-	@Resource BorderStationDao borderStationDao;
+	@Resource
+	BorderStationDao borderStationDao;
 	
 	@Override
 	protected void save(GuardInBorderStation entity) {

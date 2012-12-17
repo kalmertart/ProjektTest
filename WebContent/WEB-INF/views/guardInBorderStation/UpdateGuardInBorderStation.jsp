@@ -62,6 +62,18 @@
 									</form:select>
 								</td>
 							</tr>
+							<tr>
+								<td>
+									<form:label path="workTime">
+										<spring:message code="guardInBorderStation.field.workTime" />
+									</form:label>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<form:input path="workTime"/>
+								</td>
+							</tr>
 						</table>
 					</div>
 					<div class="rightpanel">

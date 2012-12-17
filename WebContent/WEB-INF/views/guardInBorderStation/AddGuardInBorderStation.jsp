@@ -17,6 +17,7 @@
 						<form:errors path="end" />
 						<form:errors path="start" />
 						<form:errors path="comment" />
+						<form:errors oath="workTime" />
 					</div>
 					<div id="leftpanel">
 						<table>
@@ -58,6 +59,18 @@
 											</form:option>
 										</c:forEach>
 									</form:select>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<form:label path="workTime">
+										<spring:message code="guardInBorderStation.field.workTime" />
+									</form:label>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<form:input path="workTime"/>
 								</td>
 							</tr>
 						</table>

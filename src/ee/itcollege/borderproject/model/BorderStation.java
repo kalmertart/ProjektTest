@@ -9,6 +9,9 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.Range;
 
 import ee.itcollege.borderproject.common.BaseEntity;
 
@@ -22,18 +25,25 @@ public class BorderStation extends BaseEntity implements Serializable{
 	private static final long serialVersionUID = 1831045952199616355L;
 
 	@Column(name = "GpsLaiuskraad")
+	@Range(min = -90, max = 90)
 	private double latitude;
 	
 	@Column(name = "GpsPikkuskraad")
+	@Range(min = -180, max = 180)
 	private double longitude;
 	
 	@Column(name = "Korgusmerepinnast")
+	@Range(min = -399, max = 8848)
 	private double elevation;
 	
 	@Column(name = "Kood")
+	@NotNull
+	@Range(min = 4, max = 50)
 	private String code;
 	
 	@Column(name = "Nimetus")
+	@NotNull
+	@Range(min = 4, max = 100)
 	private String name;
 	
 	@OneToMany(mappedBy = "borderStation")
