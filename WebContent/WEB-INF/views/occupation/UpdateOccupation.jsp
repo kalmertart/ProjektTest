@@ -2,6 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 
 <pr:Layout>
 	<div class="hero-unit">
@@ -59,7 +60,9 @@
 						<tr>
 						<td>
 						<a class="btn btn-default" href="<c:url value="/occupation/view"/>"><spring:message code="entity.button.cancel" /></a>
-						<a class="btn btn-default" href="<c:url value="/occupation/delete?id=${occupation.id}"/>"><spring:message code="entity.button.delete" /></a>
+						<sec:authorize access="hasRole('ROLE_ADMIN')">
+							<a class="btn btn-default" href="<c:url value="/occupation/delete?id=${occupation.id}"/>"><spring:message code="entity.button.delete" /></a>
+						</sec:authorize>
 						</td>
 						</tr>
 					</table>

@@ -2,6 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 
 <pr:Layout>
 	<div class="hero-unit">
@@ -111,10 +112,13 @@
 					<input type="submit" value="<spring:message code="entity.button.save" />" class="btn btn-success " /> 
 					<a class="btn btn-default" href="<c:url value="/guardInBorderStation/view"/>">
 						<spring:message code="entity.button.cancel" />
-					</a> 
-					<a class="btn btn-default" href="<c:url value="/guardInBorderStation/delete?id=${guardInBorderStation.id}"/>">
-						<spring:message code="entity.button.delete" />
 					</a>
+					<sec:authorize access="hasRole('ROLE_ADMIN')">
+						<a class="btn btn-default" href="<c:url value="/guardInBorderStation/delete?id=${guardInBorderStation.id}"/>">
+							<spring:message code="entity.button.delete" />
+						</a>
+					</sec:authorize>
+
 				</div>
 			</form:form>
 		</div>
