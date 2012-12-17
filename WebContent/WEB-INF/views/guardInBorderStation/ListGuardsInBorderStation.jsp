@@ -25,19 +25,25 @@
 						</td>
 						<td>${guardInBorderStation.borderStation.name}</td>
 						<td class="viewpanel">
-							<a href="<c:url value="/guardInBorderStation/update?id=${guardInBorderStation.id}" ></c:url>">
-								<spring:message code="entity.button.update" />
-							</a>
+							<sec:authorize access="hasAnyRole('ROLE_MODERATOR, ROLE_ADMIN')">
+								<a href="<c:url value="/guardInBorderStation/update?id=${guardInBorderStation.id}" ></c:url>">
+									<spring:message code="entity.button.update" />
+								</a>
+							</sec:authorize>
 						</td>
 						<td class="viewpanel">
-							<a href="<c:url value="/guardInBorderStation/delete?id=${guardInBorderStation.id}"/>">
-								<spring:message code="entity.button.delete" />
-							</a>
+							<sec:authorize access="hasRole('ROLE_ADMIN')">
+								<a href="<c:url value="/guardInBorderStation/delete?id=${guardInBorderStation.id}"/>">
+									<spring:message code="entity.button.delete" />
+								</a>
+							</sec:authorize>
 						</td>
 					</tr>
 				</c:forEach>
 			</table>
-			<a class="btn btn-inverse" href="<c:url value="/guardInBorderStation/add"/>"><spring:message code="entity.add.new" /></a>
+			<sec:authorize access="hasAnyRole('ROLE_MODERATOR, ROLE_ADMIN')">
+				<a class="btn btn-inverse" href="<c:url value="/guardInBorderStation/add"/>"><spring:message code="entity.add.new" /></a>
+			</sec:authorize>
 		</div>
 	</div>
 </pr:Layout>

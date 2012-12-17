@@ -24,18 +24,24 @@
 					<td>${borderStation.latitude}</td>
 					<td>${borderStation.longitude}</td>
 					<td>
-						<a href="<c:url value="/borderStation/update?id=${borderStation.id}" ></c:url>">
-							<spring:message code="entity.button.update" />
-						</a>
+						<sec:authorize access="hasAnyRole('ROLE_MODERATOR, ROLE_ADMIN')">
+							<a href="<c:url value="/borderStation/update?id=${borderStation.id}" ></c:url>">
+								<spring:message code="entity.button.update" />
+							</a>
+						</sec:authorize>
 					</td>
 					<td>
-						<a href="<c:url value="/borderStation/delete?id=${borderStation.id}"/>">
-							<spring:message code="entity.button.delete" />
-						</a>
+						<sec:authorize access="hasRole('ROLE_ADMIN')">
+							<a href="<c:url value="/borderStation/delete?id=${borderStation.id}"/>">
+								<spring:message code="entity.button.delete" />
+							</a>
+						</sec:authorize>
 					</td>
 				</tr>
 			</c:forEach>
 		</table>
-		<a class="btn btn-inverse" href="<c:url value="/borderStation/add"/>"><spring:message code="entity.add.new" /></a>
+		<sec:authorize access="hasAnyRole('ROLE_MODERATOR, ROLE_ADMIN')">
+			<a class="btn btn-inverse" href="<c:url value="/borderStation/add"/>"><spring:message code="entity.add.new" /></a>
+		</sec:authorize>
 	</div>
 </pr:Layout>
