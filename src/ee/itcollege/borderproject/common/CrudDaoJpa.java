@@ -7,6 +7,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
+import org.springframework.security.core.context.SecurityContextHolder;
+
 public abstract class CrudDaoJpa<T extends BaseEntity> {
 	
 	protected EntityManagerFactory entityManagerFactory = Persistence
@@ -51,6 +53,7 @@ public abstract class CrudDaoJpa<T extends BaseEntity> {
 	public void delete(Integer id) {
 		T entity = find(id);
 		entity.setRemoved(new Date());
+		entity.setRemover(getInvokerUserName());
 		update(entity);
 	}
 	
@@ -60,4 +63,7 @@ public abstract class CrudDaoJpa<T extends BaseEntity> {
         return clazz;
     }
     
+    private String getInvokerUserName() {	    
+   	 return SecurityContextHolder.getContext().getAuthentication().getName();
+   }
 }

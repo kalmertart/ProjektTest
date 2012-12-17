@@ -7,6 +7,7 @@ import javax.validation.Valid;
 
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -70,7 +71,7 @@ public abstract class CrudController<T extends BaseEntity> {
 	@RequestMapping(value = ADD, method = RequestMethod.POST)
 	public String addReceive(Model model,
 			@ModelAttribute @Valid T entity, BindingResult result) {		
-		
+
 		if (result.hasErrors())  
 			return addingView;
 		
