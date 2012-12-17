@@ -74,7 +74,7 @@
 							</tr>
 							<tr>
 								<td>
-									<form:input path="start"/>
+									<form:input path="start" class="datefield"/>
 								</td>
 							</tr>
 							<tr>
@@ -86,7 +86,7 @@
 							</tr>
 							<tr>
 								<td>
-									<form:input path="end"/>
+									<form:input path="end" class="datefield"/>
 								</td>
 							</tr>
 						</table>
@@ -112,7 +112,7 @@
 					<a class="btn btn-default" href="<c:url value="/guardInBorderStation/view"/>">
 						<spring:message code="entity.button.cancel" />
 					</a> 
-					<a class="btn btn-default" href="<c:url value="/guardInBorderStation/delete?id=${guard.id}"/>">
+					<a class="btn btn-default" href="<c:url value="/guardInBorderStation/delete?id=${guardInBorderStation.id}"/>">
 						<spring:message code="entity.button.delete" />
 					</a>
 				</div>

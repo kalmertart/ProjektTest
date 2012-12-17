@@ -64,14 +64,14 @@
 						<table>
 							<tr>
 								<td>
-									<form:label path="start">
+									<form:label path="start" >
 										<spring:message code="occupationInBorderStation.field.start"/>
 									</form:label>
 								</td>
 							</tr>
 							<tr>
 								<td>
-									<form:input path="start"/>
+									<form:input path="start" class="datefield"/>
 								</td>
 							</tr>
 							<tr>
@@ -83,7 +83,7 @@
 							</tr>
 							<tr>
 								<td>
-									<form:input path="end"/>
+									<form:input path="end" class="datefield"/>
 								</td>
 							</tr>
 						</table>

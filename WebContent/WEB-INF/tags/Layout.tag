@@ -9,6 +9,15 @@
 <link href="../css/bootstrap.min.css" rel="stylesheet">
 <link href="./css/myCss.css" rel="stylesheet">
 <link href="../css/myCss.css" rel="stylesheet">
+<link href="./css/datepicker.css" rel="stylesheet">
+<link href="../css/datepicker.css" rel="stylesheet">
+<!-- <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" /> -->
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.3.js"></script>
+<!-- <script type="text/javascript" src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script> -->
+<script type="text/javascript" src="./js/bootstrap-datepicker.js"></script>
+<script type="text/javascript" src="../js/bootstrap-datepicker.js"></script>
+<script type="text/javascript" src="./js/script.js"></script>
+<script type="text/javascript" src="../js/script.js"></script>
 <meta charset="ISO-8859-1">
 </head>
 <body>

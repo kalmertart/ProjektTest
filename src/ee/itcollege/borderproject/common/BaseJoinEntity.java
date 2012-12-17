@@ -3,7 +3,9 @@ package ee.itcollege.borderproject.common;
 import java.util.Date;
 
 import javax.persistence.Column;
+import javax.persistence.MappedSuperclass;
 
+@MappedSuperclass
 public class BaseJoinEntity extends BaseEntity {
 	
 	@Column(name = "Alates")
