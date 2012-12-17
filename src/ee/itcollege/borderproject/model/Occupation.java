@@ -9,6 +9,9 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.Range;
 
 import ee.itcollege.borderproject.common.BaseEntity;
 
@@ -22,9 +25,13 @@ public class Occupation extends BaseEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Column(name = "IscoKood")
+	@NotNull
+	@Range(min = 2, max = 8)
 	private String iscoCode;
 	
 	@Column(name = "Nimetus")
+	@NotNull
+	@Range(min = 5, max = 50)
 	private String name;
 	
 	@OneToMany(mappedBy = "occupation")

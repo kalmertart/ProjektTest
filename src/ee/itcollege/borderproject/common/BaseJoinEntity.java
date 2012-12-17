@@ -4,11 +4,13 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
+import javax.validation.constraints.NotNull;
 
 @MappedSuperclass
 public class BaseJoinEntity extends BaseEntity {
 	
 	@Column(name = "Alates")
+	@NotNull
 	private Date start;
 	
 	@Column(name = "Kuni")

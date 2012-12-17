@@ -10,6 +10,8 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
+import org.hibernate.validator.constraints.Range;
+
 import ee.itcollege.borderproject.common.BaseJoinEntity;
 
 @Entity
@@ -22,6 +24,7 @@ public class GuardInBorderStation extends BaseJoinEntity implements Serializable
 	private static final long serialVersionUID = 5376653039415829163L;
 	
 	@Column(name = "Koormus")
+	@Range(min = 0, max = 1)
 	private double workTime;
 	
 	@ManyToOne
