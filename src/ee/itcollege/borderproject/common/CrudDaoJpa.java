@@ -12,6 +12,10 @@ public abstract class CrudDaoJpa<T extends BaseEntity> {
 	protected EntityManagerFactory entityManagerFactory = Persistence
 			.createEntityManagerFactory("Team11BorderDb");
 	
+//	protected EntityManagerFactory entityManagerFactory = 
+//			new PersistenceProvider().createEntityManagerFactory("Team11BorderDb");
+	
+	
 	private Class<T> entityClass = figureOutPersistentClass();
     
 	public void save(T entity) {
