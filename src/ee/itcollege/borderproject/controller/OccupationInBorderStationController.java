@@ -3,9 +3,12 @@ package ee.itcollege.borderproject.controller;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -71,17 +74,38 @@ public class OccupationInBorderStationController extends CrudController<Occupati
 	
 	@RequestMapping(value = ADD, method = RequestMethod.GET)
 	public String add(Model model) {
-		model.addAttribute( OCCUPATION_ATTRIBUTE, occupationDao.getAll() );
-		model.addAttribute( BORDERSTATION_ATTRIBUTE, borderStationDao.getAll() );
+		fillOptionSources( model );
 		return super.add( model );
+	}
+	
+	@RequestMapping(value = ADD, method = RequestMethod.POST)
+	public String addReceive(Model model,
+			@ModelAttribute @Valid OccupationInBorderStation entity,
+			BindingResult result)
+	{
+		fillOptionSources( model );
+		return super.addReceive( model, entity, result );
 	}
 	
 	@RequestMapping(value = UPDATE, method = RequestMethod.GET)
 	public String update(Model model,
 			@RequestParam(required=true, value = ID) Integer entityId)
 	{
+		fillOptionSources( model );
+		return super.update( model, entityId );
+	}
+	
+	@RequestMapping(value = UPDATE, method = RequestMethod.POST)
+	public String receiveUpdate(Model model,
+			@ModelAttribute @Valid OccupationInBorderStation entity,
+			BindingResult result)
+	{
+		fillOptionSources( model );
+		return super.receiveUpdate( model, entity, result );
+	}
+	
+	private void fillOptionSources(Model model) {
 		model.addAttribute( OCCUPATION_ATTRIBUTE, occupationDao.getAll() );
 		model.addAttribute( BORDERSTATION_ATTRIBUTE, borderStationDao.getAll() );
-		return super.update( model, entityId );
 	}
 }
