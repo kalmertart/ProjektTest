@@ -641,11 +641,11 @@ h1 {
 }
 
 h2 {
-	font-size: 31.5px
+	font-size: 35.5px
 }
 
 h3 {
-	font-size: 24.5px
+	font-size: 33.5px
 }
 
 h4 {
@@ -5479,7 +5479,7 @@ to {
 }
 
 .hero-unit {
-	padding: 60px;
+	padding: 60px 60px 30px 60px;
 	margin-bottom: 20px;
 	font-size: 18px;
 	font-weight: 200;

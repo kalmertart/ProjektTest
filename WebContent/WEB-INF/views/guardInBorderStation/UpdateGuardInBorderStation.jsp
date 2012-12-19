@@ -9,6 +9,7 @@
 		<h3>
 			<spring:message code="guardInBorderStation.update" />
 		</h3>
+	</div>
 		<div id="formdiv">
 			<form:form action="update" method="POST" modelAttribute="guardInBorderStation">
 				<form:hidden path="id" />
@@ -148,5 +149,4 @@
 				</div>
 			</form:form>
 		</div>
-	</div>
 </pr:Layout>

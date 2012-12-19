@@ -3,9 +3,9 @@
 
 <pr:Layout>
 	<div class="hero-unit">
-		<h1>
+		<h3>
 			<spring:message code="home.heading" />
-		</h1>
+		</h3>
 	</div>
 	
 	<p><spring:message code="home.introduction" /></p>

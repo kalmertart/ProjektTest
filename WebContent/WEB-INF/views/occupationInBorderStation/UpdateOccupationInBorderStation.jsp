@@ -9,6 +9,7 @@
 		<h3>
 			<spring:message code="occupationInBorderStation.update" />
 		</h3>
+	</div>
 		<div id="formdiv">
 			<form:form action="update" method="POST" modelAttribute="occupationInBorderStation">
 				<form:hidden path="id" />
@@ -130,5 +131,4 @@
 				</div>
 			</form:form>
 		</div>
-	</div>
 </pr:Layout>

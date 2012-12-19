@@ -6,9 +6,9 @@
 
 <pr:Layout>
 	<div class="hero-unit">
-		<h1>
+		<h3>
 			<spring:message code="occupation.update.heading" />
-		</h1>
+		</h3>
 	</div>
 	<div id="formdiv">
 		<form:form action="update" method="POST" modelAttribute="occupation">

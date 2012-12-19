@@ -8,6 +8,7 @@
 		<h3>
 			<spring:message code="guardInBorderStation.plural" />
 		</h3>
+	</div>
 		<div>
 			<table class="viewpanel">
 				<tr>
@@ -45,5 +46,4 @@
 				<a class="btn btn-inverse" href="<c:url value="/guardInBorderStation/add"/>"><spring:message code="entity.add.new" /></a>
 			</sec:authorize>
 		</div>
-	</div>
 </pr:Layout>

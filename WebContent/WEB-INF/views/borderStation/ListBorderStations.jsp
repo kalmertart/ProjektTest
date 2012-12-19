@@ -5,7 +5,9 @@
 
 <pr:Layout>
 	<div class="hero-unit">
-		<h1><spring:message code="borderStation.plural" /></h1>
+		<h3>
+			<spring:message code="borderStation.plural" />
+		</h3>
 	</div>
 	<div id="hor-minimalist-b">
 		<table >

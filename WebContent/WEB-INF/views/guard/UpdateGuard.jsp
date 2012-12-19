@@ -6,7 +6,9 @@
 
 <pr:Layout>
 	<div class="hero-unit">
-		<h1><spring:message code="guard.update.heading"/></h1>
+		<h3>
+			<spring:message code="guard.update.heading"/>
+		</h3>
 	</div>
 	<div id="formdiv">
 		<form:form action="update" method="POST" modelAttribute="guard">

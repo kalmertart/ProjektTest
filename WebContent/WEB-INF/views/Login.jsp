@@ -6,7 +6,9 @@
 <pr:Layout>
 	
 	<div class="hero-unit">
-	<h1><spring:message code="login.header"/></h1>
+	<h3>
+		<spring:message code="login.header"/>
+	</h3>
 		<form name='f' action="j_spring_security_check" method='POST'>
 			<table>
 				<tr>
