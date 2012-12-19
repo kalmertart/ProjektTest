@@ -1,5 +1,9 @@
 package ee.itcollege.borderproject.setup;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Component;
@@ -27,9 +31,19 @@ public class GuardInBorderStationDataInserter {
 
 	public void insertGuardsInBorderStation() {		
 		if (!hasTestDataBeenInserted()) {
-			Guard guard = getFirstGuard();
-			BorderStation borderStation = getFirstBorderStation();
+			guardInBorderStationDao.save(testGuardInBorderStation());
 		}
+	}
+	
+	public GuardInBorderStation testGuardInBorderStation(){
+		GuardInBorderStation guardInBorderStation = new GuardInBorderStation();
+		guardInBorderStation.setBorderStation(getFirstBorderStation());
+		guardInBorderStation.setGuard(getFirstGuard());
+		guardInBorderStation.setStart(asDate("19/12/2010"));
+		guardInBorderStation.setEnd(asDate("19/12/2011"));
+		guardInBorderStation.setWorkTime(1.0);
+		
+		return guardInBorderStation;
 	}
 	
 	private Guard getFirstGuard() {
@@ -49,4 +63,12 @@ public class GuardInBorderStationDataInserter {
 		return false;
 	}
 	
+	public static Date asDate(String date) {
+            try {
+				return new SimpleDateFormat("dd/MM/yyyy").parse(date);
+			} catch (ParseException e) {
+				e.printStackTrace();
+			}
+			return null;
+	}
 }

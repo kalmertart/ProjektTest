@@ -1,5 +1,9 @@
 package ee.itcollege.borderproject.setup;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Component;
@@ -29,9 +33,18 @@ public class OccupationInBorderStationDataInserter {
 
 	public void insertOccupationsInBorderStations() {
 		if (!hasTestDataBeenInserted()) {
-			Occupation occupation = getFirstOccupation();
-			BorderStation borderStation = getFirstBorderStation();
+			occupationInBorderStationDao.save(testOccupationInBorderStation1());
 		}
+	}
+	
+	public OccupationInBorderStation testOccupationInBorderStation1(){
+		OccupationInBorderStation occupationInBorderStation = new OccupationInBorderStation();
+		occupationInBorderStation.setBorderStation(getFirstBorderStation());
+		occupationInBorderStation.setOccupation(getFirstOccupation());
+		occupationInBorderStation.setStart(asDate("01/05/2011"));
+		occupationInBorderStation.setEnd(asDate("01/06/2011"));
+		
+		return occupationInBorderStation;
 	}
 	
 	private Occupation getFirstOccupation() {
@@ -50,5 +63,14 @@ public class OccupationInBorderStationDataInserter {
 		
 		return false;
 	}
+	
+	public static Date asDate(String date) {
+        try {
+			return new SimpleDateFormat("dd/MM/yyyy").parse(date);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		return null;
+}
 
 }
