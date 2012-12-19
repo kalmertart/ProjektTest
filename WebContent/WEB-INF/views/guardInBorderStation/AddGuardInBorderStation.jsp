@@ -11,14 +11,27 @@
 		<div id="formdiv">
 			<form:form action="add" method="POST" modelAttribute="guardInBorderStation">
 				<div>
-					<div id="errorspanel">
-						<form:errors path="guard.id" />
-						<form:errors path="borderStation.id" />
-						<form:errors path="end" />
-						<form:errors path="start" />
-						<form:errors path="comment" />
-						<form:errors oath="workTime" />
-					</div>
+					<c:if test="">
+						<div id="errorspanel">
+							<table>
+								<tr>
+									<td><form:errors path="guard.id" /></td>
+								</tr>
+								<tr>
+									<td><form:errors path="borderStation.id" /></td>
+								</tr>
+								<tr>
+									<td><form:errors path="start" /></td>
+								</tr>
+								<tr>
+									<td><form:errors oath="workTime" /></td>
+								</tr>
+								<tr>
+									<td><form:errors path="comment" /></td>
+								</tr>
+							</table>
+						</div>
+					</c:if>
 					<div id="leftpanel">
 						<table>
 							<tr>
