@@ -9,6 +9,10 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.Range;
 
 import ee.itcollege.borderproject.common.BaseEntity;
 
@@ -22,26 +26,41 @@ public class Guard extends BaseEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Column(name = "aadress")
+	@NotNull
+	@Range(min = 4, max = 255)
 	private String address;
 	
 	@Column(name = "eesnimi")
+	@NotNull
+	@Range(min = 2, max = 255)
 	private String firstName;
 	
 	@Column(name = "perekonnanimi")
+	@NotNull
+	@Range(min = 2, max = 255)
 	private String lastName;
 	
+	@NotNull
+	@Range(min = 4, max = 255)
 	private String email;
 	
 	@Column(name = "isikukood")
+	@NotNull
+	@Length(min = 6, max = 20)
 	private String socialSecurityNumber;
 	
 	@Column(name = "sodurikood")
+	@NotNull
+	@Length(min = 4, max = 50)
 	private String soldiersCode;
 	
 	@Column(name = "sugu")
+	@Range(min = 0, max = 1)
 	private int gender;
 	
 	@Column(name = "telefon")
+	@NotNull
+	@Range(min = 2, max = 255)
 	private String phoneNumber;
 	
 	@OneToMany(mappedBy = "guard")

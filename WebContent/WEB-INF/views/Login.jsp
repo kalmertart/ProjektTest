@@ -4,21 +4,22 @@
 <%@ taglib tagdir="/WEB-INF/tags" prefix="pr"%>
 
 <pr:Layout>
-	<h1>Login</h1>
+	
 	<div class="hero-unit">
+	<h1><spring:message code="login.header"/></h1>
 		<form name='f' action="j_spring_security_check" method='POST'>
 			<table>
 				<tr>
-					<td>User</td>
+					<td><spring:message code="login.username"/></td>
 					<td><input type='text' name='j_username' value=''></td>
 				</tr>
 				<tr>
-					<td>Password</td>
+					<td><spring:message code="login.password"/></td>
 					<td><input type='password' name='j_password' /></td>
 				</tr>
 				<tr>
 					<td colspan='2'>
-						<input name="submit" type="submit" value='Login' class="btn btn-primary btn-larg" />
+						<input name="submit" type="submit" value='<spring:message code="login.login"/>' class="btn btn-success" />
 					</td>
 				</tr>
 			</table>

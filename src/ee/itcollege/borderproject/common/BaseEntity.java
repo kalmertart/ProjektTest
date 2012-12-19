@@ -12,6 +12,9 @@ import javax.persistence.PreRemove;
 import javax.persistence.PreUpdate;
 import javax.persistence.TableGenerator;
 
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+
 @MappedSuperclass
 public abstract class BaseEntity {
 	
@@ -123,16 +126,25 @@ public abstract class BaseEntity {
 	
 	@PrePersist
     public void recordCreated() {
+		setCreator(getInvokerUserName());
         setCreated( new Date() );
     }
 
     @PreUpdate
     public void recordModified() {
+    	setModifier(getInvokerUserName());
         setModified( new Date() );
     }
 
+    // Because removing is prohibited, then we cannot set the remover here.
+    // The remover is set in borderproject.common.CrudDaoJpa.java delete() method
     @PreRemove
     public void preventRemove() {
         throw new SecurityException("Removing is prohibited!");
     }
+    
+    private String getInvokerUserName() {	    
+    	 return SecurityContextHolder.getContext().getAuthentication().getName();
+    }
+    
 }

@@ -6,7 +6,7 @@
 <pr:Layout>
 	<div class="hero-unit">
 		<h3>
-			<spring:message code="occupationInBorderStation.plural" />
+			<spring:message code="occupationInBorderStation.add" />
 		</h3>
 		<div id="formdiv">
 		<form:form action="add" method="POST" modelAttribute="occupationInBorderStation">
