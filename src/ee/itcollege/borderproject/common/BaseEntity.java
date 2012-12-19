@@ -143,7 +143,10 @@ public abstract class BaseEntity {
         throw new SecurityException("Removing is prohibited!");
     }
     
-    private String getInvokerUserName() {	    
+    private String getInvokerUserName() {
+    	 if (SecurityContextHolder.getContext().getAuthentication() == null) 
+    		 return "system";
+    	   	 
     	 return SecurityContextHolder.getContext().getAuthentication().getName();
     }
     

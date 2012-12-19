@@ -3,6 +3,8 @@ package ee.itcollege.borderproject.setup;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -18,7 +20,7 @@ import org.springframework.stereotype.Component;
 //@Component
 public class SetupDb {
 	
-	private static final String SQL_COMMENT = "--";
+	private static final String SQL_COMMENT = "-s-";
 	private static final String DATABASE_CHECK = "SELECT count(*) FROM information_schema.system_tables WHERE table_name = 'AMET';";
 	private static final String SQL_BUILD_SCRIPT = "C:/Code/Java/workspace_team11_project/ProjektTest/WebContent/WEB-INF/resources/Piirivalve.script";
 		// Kalmer: 	"D:/Java Workspace/Projekt_11/ProjektTest/WebContent/WEB-INF/resources/Piirivalve.script";
@@ -30,30 +32,48 @@ public class SetupDb {
 	public void createTables() throws SQLException, ClassNotFoundException, IOException {
 		Connection connection = null;
 		
-		try {
-			connection = createConnection();
-			if( isDatabaseEmpty( connection )){
-				List<String> statements = statementList( SQL_BUILD_SCRIPT );
-				executeSqlStatements( statements );
-			}
+		for (String s : statementList("")) {
+			System.out.println(s);
 		}
-		finally {
-			if( connection != null ){
-				connection.close();
-			}
-		}
+//		 System.out.println("SIGA");
+//		System.out.println(System.getProperties().getProperty("java.class.path"));
+//		System.out.println();
+//		getScriptLocation();
+//		try {
+//			connection = createConnection();
+//			if( isDatabaseEmpty( connection )){
+//				List<String> statements = statementList( SQL_BUILD_SCRIPT );
+//				executeSqlStatements( statements );
+//			}
+//		}
+//		finally {
+//			if( connection != null ){
+//				connection.close();
+//			}
+//		}
 	}
 	
 	public static String getScriptLocation()  {
-		try {
-			System.out.println(new java.io.File(".").getCanonicalPath());
-			return new java.io.File("/WEB-INF/resources/Piiripunkt.script").getCanonicalPath();
-		}
-		catch (IOException e) {
-			e.printStackTrace();
-		}
-		return "";
-	}
+		  try {
+		   InputStream is = Thread.currentThread().getContextClassLoader().getResourceAsStream("/WEB-INF/resources/Piiripunkt.script");
+//		   System.out.println(new java.io.File(".").getCanonicalPath());
+		   
+		   BufferedReader reader = new BufferedReader(new InputStreamReader(is));
+		   
+		   
+		   System.out.println("SIGA");
+		   System.out.println(reader.readLine());
+		   System.out.println(reader.readLine());
+		   System.out.println(reader.readLine());
+		   System.out.println(reader.readLine());
+		   
+		   return new java.io.File("/WEB-INF/resources/Piiripunkt.script").getCanonicalPath();
+		  }
+		  catch (IOException e) {
+		   e.printStackTrace();
+		  }
+		  return "";
+		 }
 	
 	public Connection createConnection() throws SQLException, ClassNotFoundException {
 		Class.forName( DRIVER_CLASS );
@@ -71,8 +91,11 @@ public class SetupDb {
 	private List<String> statementList(String fileName) throws IOException {
 		List<String> collectedStatements = new ArrayList<String>();
 		
-		BufferedReader reader = new BufferedReader(new FileReader(fileName));
-
+//		BufferedReader reader = new BufferedReader(new FileReader(fileName));
+		InputStream is = Thread.currentThread().getContextClassLoader().getResourceAsStream("schema.sql");
+//		   System.out.println(new java.io.File(".").getCanonicalPath());
+		   
+		   BufferedReader reader = new BufferedReader(new InputStreamReader(is));
 		try {
 			String statementLine ;
 			while ((statementLine = reader.readLine()) != null) {

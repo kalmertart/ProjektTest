@@ -1,4 +1,6 @@
 package ee.itcollege.borderproject.setup;
+import java.util.List;
+
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 
@@ -14,8 +16,11 @@ public class GuardDataInserter {
 	GuardDao guardDao;
 	
 	@PostConstruct
-	public void init(){
-		guardDao.save(testGuard1());
+	public void tere(){
+		System.out.println(hasTestDataBeenInserted());
+		if (!hasTestDataBeenInserted()) {
+			guardDao.save(testGuard1());
+		}
 	}
 	
 	private Guard testGuard1(){
@@ -27,8 +32,19 @@ public class GuardDataInserter {
 		guard.setLastName("Gustavson");
 		guard.setPhoneNumber("57575755");
 		guard.setSocialSecurityNumber("39108023344");
+		guard.setSoldiersCode("PV123");
 		
 		return guard;
+	}
+	
+	private boolean hasTestDataBeenInserted() {
+		for (Guard guard : guardDao.getAll()) {
+			if ("system".equals(guard.getCreator()))
+				return true;
+		}
+		
+		return false;
+			
 	}
 	
 }
