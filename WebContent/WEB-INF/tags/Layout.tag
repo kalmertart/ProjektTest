@@ -42,6 +42,8 @@
 							<li><a href="<c:url value="/guardInBorderStation/view"/>"><spring:message code="guardInBorderStation.singular"/></a></li>
 							<li><a href="<c:url value="/j_spring_security_logout"/>"><spring:message code="login.logout"/></a></li>
 						</sec:authorize>
+						<li><a href="?siteLanguage=et"><spring:message code="siteLanguage.selection.estonian"/></a></li>
+						<li><a href="?siteLanguage=en"><spring:message code="siteLanguage.selection.english"/></a></li>
 					</ul>
 				</div>
 			</div>
