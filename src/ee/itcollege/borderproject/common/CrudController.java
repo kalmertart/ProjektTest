@@ -34,6 +34,7 @@ public abstract class CrudController<T extends BaseEntity> {
 	protected static final String UPDATE = "/update";
 	protected static final String DELETE = "/delete";
 	protected static final String ID = "id";
+	protected static final String ERRORS = "errors";
 	
 	public CrudController() {
 		entityClass = figureOutPersistentClass();
@@ -72,8 +73,10 @@ public abstract class CrudController<T extends BaseEntity> {
 	public String addReceive(Model model,
 			@ModelAttribute @Valid T entity, BindingResult result) {		
 
-		if (result.hasErrors())  
+		if (result.hasErrors()) {
+			model.addAttribute( ERRORS, true );
 			return addingView;
+		}
 		
 		save(entity);
 		return getRedirectionToListing();
@@ -96,8 +99,10 @@ public abstract class CrudController<T extends BaseEntity> {
 	public String receiveUpdate(Model model,
 			@ModelAttribute @Valid T entity, BindingResult result) {				
 
-		if(result.hasErrors())
+		if(result.hasErrors()) {
+			model.addAttribute( ERRORS, true );
 			return updatingView;
+		}
 		
 		update(entity);		
 		return getRedirectionToListing();

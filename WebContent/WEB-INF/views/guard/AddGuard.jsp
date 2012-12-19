@@ -10,17 +10,39 @@
 		</h1>
 	</div>
 	<div id="formdiv">
-		<div id="errorspanel">
-			<form:errors path="soldiersCode" />
-			<form:errors path="socialSecurityNumber" />
-			<form:errors path="firstName" />
-			<form:errors path="lastName" />
-			<form:errors path="gender" />
-			<form:errors path="email" />
-			<form:errors path="phoneNumber" />
-			<form:errors path="address" />
-			<form:errors path="comment" />
-		</div>
+		<c:if test="${errors}">
+			<div id="errorspanel">
+				<table>
+					<tr>
+						<td><form:errors path="soldiersCode" /></td>
+					</tr>
+					<tr>
+						<td><form:errors path="socialSecurityNumber" /></td>
+					</tr>
+					<tr>
+						<td><form:errors path="firstName" /></td>
+					</tr>
+					<tr>
+						<td><form:errors path="lastName" /></td>
+					</tr>
+					<tr>
+						<td><form:errors path="gender" /></td>
+					</tr>
+					<tr>
+						<td><form:errors path="email" /></td>
+					</tr>
+					<tr>
+						<td><form:errors path="phoneNumber" /></td>
+					</tr>
+					<tr>
+						<td><form:errors path="address" /></td>
+					</tr>
+					<tr>
+						<td><form:errors path="comment" /></td>
+					</tr>
+				</table>
+			</div>
+		</c:if>
 		<form:form action="add" method="POST" modelAttribute="guard">
 			<div>
 				<div id="leftpanel">
