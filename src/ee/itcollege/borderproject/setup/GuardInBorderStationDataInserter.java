@@ -2,6 +2,8 @@ package ee.itcollege.borderproject.setup;
 
 import javax.annotation.Resource;
 
+import org.springframework.stereotype.Component;
+
 import ee.itcollege.borderproject.dao.BorderStationDao;
 import ee.itcollege.borderproject.dao.GuardDao;
 import ee.itcollege.borderproject.dao.GuardInBorderStationDao;
@@ -9,6 +11,7 @@ import ee.itcollege.borderproject.model.BorderStation;
 import ee.itcollege.borderproject.model.Guard;
 import ee.itcollege.borderproject.model.GuardInBorderStation;
 
+@Component
 public class GuardInBorderStationDataInserter {
 	
 	public static final String SYSTEM_USER = "system";
