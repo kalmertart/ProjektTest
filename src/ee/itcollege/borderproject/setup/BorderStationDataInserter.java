@@ -1,6 +1,5 @@
 package ee.itcollege.borderproject.setup;
 
-import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Component;
@@ -16,18 +15,18 @@ public class BorderStationDataInserter {
 	@Resource
 	BorderStationDao bsDao;
 	
-	@PostConstruct
-	public void insertGuards(){
-		System.out.println(hasTestDataBeenInserted());
+
+	public void insertBorderStations(){
+
 		if (!hasTestDataBeenInserted()) {
 			bsDao.save(testBs1());
 			bsDao.save(testBs2());
 			bsDao.save(testBs3());
-			bsDao.save(testBs4());
+			bsDao.save(testBs4());			
 		}
 	}
 	
-	public BorderStation testBs1(){
+	private BorderStation testBs1(){
 		BorderStation bs = new BorderStation();
 		bs.setLatitude(57.874636);
 		bs.setLongitude(24.361231);
@@ -39,7 +38,7 @@ public class BorderStationDataInserter {
 		return bs;
 	}
 	
-	public BorderStation testBs2(){
+	private BorderStation testBs2(){
 		BorderStation bs = new BorderStation();
 		bs.setLatitude(57.581325);
 		bs.setLongitude(27.046856);
@@ -51,7 +50,7 @@ public class BorderStationDataInserter {
 		return bs;
 	}
 	
-	public BorderStation testBs3(){
+	private BorderStation testBs3(){
 		BorderStation bs = new BorderStation();
 		bs.setLatitude(58.078211);
 		bs.setLongitude(25.190898);
@@ -63,7 +62,7 @@ public class BorderStationDataInserter {
 		return bs;
 	}
 	
-	public BorderStation testBs4(){
+	private BorderStation testBs4(){
 		BorderStation bs = new BorderStation();
 		bs.setLatitude(59.376884);
 		bs.setLongitude(28.204628);

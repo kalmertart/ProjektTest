@@ -16,7 +16,6 @@ public class GuardDataInserter {
 	@Resource
 	GuardDao guardDao;
 	
-	@PostConstruct
 	public void insertGuards(){
 		System.out.println(hasTestDataBeenInserted());
 		if (!hasTestDataBeenInserted()) {

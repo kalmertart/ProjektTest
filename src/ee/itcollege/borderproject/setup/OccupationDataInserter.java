@@ -16,7 +16,6 @@ public class OccupationDataInserter {
 	@Resource
 	OccupationDao occupationDao;
 	
-	@PostConstruct
 	public void insertOccupations(){
 		System.out.println(hasTestDataBeenInserted());
 		if (!hasTestDataBeenInserted()) {
@@ -26,7 +25,7 @@ public class OccupationDataInserter {
 		}
 	}
 	
-	public Occupation testOccupation1(){
+	private Occupation testOccupation1(){
 		Occupation occupation = new Occupation();
 		occupation.setIscoCode("ISCO-3351");
 		occupation.setComment("Valvab piiri ja kontrollib dokumente");
@@ -35,7 +34,7 @@ public class OccupationDataInserter {
 		return occupation;
 	}
 	
-	public Occupation testOccupation2(){
+	private Occupation testOccupation2(){
 		Occupation occupation = new Occupation();
 		occupation.setIscoCode("ISCO-91");
 		occupation.setComment("Koristab ja pläkutab tihtipeale");
@@ -44,7 +43,7 @@ public class OccupationDataInserter {
 		return occupation;
 	}
 	
-	public Occupation testOccupation3(){
+	private Occupation testOccupation3(){
 		Occupation occupation = new Occupation();
 		occupation.setIscoCode("ISCO-0110");
 		occupation.setComment("Valvab ja tulistab");
