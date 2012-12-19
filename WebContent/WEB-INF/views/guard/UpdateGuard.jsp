@@ -10,6 +10,17 @@
 	</div>
 	<div id="formdiv">
 		<form:form action="update" method="POST" modelAttribute="guard">
+			<div id="errorspanel">
+				<form:errors path="soldiersCode" />
+				<form:errors path="socialSecurityNumber" />
+				<form:errors path="firstName" />
+				<form:errors path="lastName" />
+				<form:errors path="gender" />
+				<form:errors path="email" />
+				<form:errors path="phoneNumber" />
+				<form:errors path="address" />
+				<form:errors path="comment" />
+			</div>
 			<form:hidden path="id" />
 			<div>
 				<div id="leftpanel">
@@ -23,18 +34,12 @@
 							<td><form:input path="soldiersCode" /></td>
 						</tr>
 						<tr>
-							<td><form:errors path="soldiersCode" /></td>
-						</tr>
-						<tr>
 							<td><form:label path="socialSecurityNumber">
 									<spring:message code="guard.field.socialSecurityNumber" />
 								</form:label></td>
 						</tr>
 						<tr>
 							<td><form:input path="socialSecurityNumber" /></td>
-						</tr>
-						<tr>
-							<td><form:errors path="socialSecurityNumber" /></td>
 						</tr>
 						<tr>
 							<td><form:label path="firstName">
@@ -45,18 +50,12 @@
 							<td><form:input path="firstName" /></td>
 						</tr>
 						<tr>
-							<td><form:errors path="firstName" /></td>
-						</tr>
-						<tr>
 							<td><form:label path="lastName">
 									<spring:message code="guard.field.lastName" />
 								</form:label></td>
 						</tr>
 						<tr>
 							<td><form:input path="lastName" /></td>
-						</tr>
-						<tr>
-							<td><form:errors path="lastName" /></td>
 						</tr>
 						<tr>
 							<td><form:label path="gender">
@@ -73,10 +72,6 @@
 									</form:option>
 								</form:select></td>
 						</tr>
-						<tr>
-							<td><form:errors path="gender" /></td>
-						</tr>
-						<tr>
 					</table>
 				</div>
 				<div id="rightpanel">
@@ -90,18 +85,12 @@
 							<td><form:input path="email" /></td>
 						</tr>
 						<tr>
-							<td><form:errors path="email" /></td>
-						</tr>
-						<tr>
 							<td><form:label path="phoneNumber">
 									<spring:message code="guard.field.phoneNumber" />
 								</form:label></td>
 						</tr>
 						<tr>
 							<td><form:input path="phoneNumber" /></td>
-						</tr>
-						<tr>
-							<td><form:errors path="phoneNumber" /></td>
 						</tr>
 						<tr>
 							<td><form:label path="address">
@@ -112,17 +101,11 @@
 							<td><form:input path="address" /></td>
 						</tr>
 						<tr>
-							<td><form:errors path="address" /></td>
-						</tr>
-						<tr>
 							<td><form:label path="comment"><spring:message code="entity.field.comment" /></form:label></td>
 						</tr>
 						<tr>
 							<td><form:textarea path="comment" name="comments" cols="100" class="guardComment"
 									rows="3"></form:textarea></td>
-						</tr>
-						<tr>
-							<td><form:errors path="comment" /></td>
 						</tr>
 					</table>
 				</div>
