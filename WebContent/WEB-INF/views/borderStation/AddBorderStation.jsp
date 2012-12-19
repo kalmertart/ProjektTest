@@ -11,6 +11,27 @@
 	</div>
 	<div id="formdiv">
 		<form:form action="add" method="POST" modelAttribute="borderStation">
+			<c:if test="${errors}">
+				<div id="errorspanel">
+					<table>
+						<tr>
+							<td><form:errors path="code" /></td>
+						</tr>
+						<tr>
+							<td><form:errors path="latitude" /></td>
+						</tr>
+						<tr>
+							<td><form:errors path="name" /></td>
+						</tr>
+						<tr>
+							<td><form:errors path="longitude" /></td>
+						</tr>
+						<tr>
+							<td><form:errors path="elevation" /></td>
+						</tr>
+					</table>
+				</div>
+			</c:if>
 			<div>
 				<div id="leftpanel">
 					<table>
@@ -23,18 +44,12 @@
 							<td><form:input path="code" /></td>
 						</tr>
 						<tr>
-							<td><form:errors path="code" /></td>
-						</tr>
-						<tr>
 							<td><form:label path="latitude">
 									<spring:message code="borderStation.field.latitude" />
 								</form:label></td>
 						</tr>
 						<tr>
 							<td><form:input path="latitude" /></td>
-						</tr>
-						<tr>
-							<td><form:errors path="latitude" /></td>
 						</tr>
 					</table>
 				</div>
@@ -49,18 +64,12 @@
 							<td><form:input path="name" /></td>
 						</tr>
 						<tr>
-							<td><form:errors path="name" /></td>
-						</tr>
-						<tr>
 							<td><form:label path="longitude">
 									<spring:message code="borderStation.field.longitude" />
 								</form:label></td>
 						</tr>
 						<tr>
 							<td><form:input path="longitude" /></td>
-						</tr>
-						<tr>
-							<td><form:errors path="longitude" /></td>
 						</tr>
 					</table>
 				</div>
@@ -82,9 +91,6 @@
 						</tr>
 						<tr>
 							<td><form:input path="elevation" /></td>
-						</tr>
-						<tr>
-							<td><form:errors path="elevation" /></td>
 						</tr>
 					</table>
 				</div>
