@@ -18,7 +18,9 @@ import ee.itcollege.borderproject.common.BaseJoinEntity;
 @Entity
 @Table(name = "Piirivalvurpiiripunktis")
 @NamedQueries({
-	@NamedQuery(name = "GuardInBorderStation.findAll", query = "SELECT g FROM GuardInBorderStation g WHERE g.removed IS null")
+	@NamedQuery(
+			name = "GuardInBorderStation.findAll", 
+			query = "SELECT g FROM GuardInBorderStation g WHERE g.removed IS null AND g.borderStation.removed IS null AND g.guard.removed IS null")
 })
 public class GuardInBorderStation extends BaseJoinEntity implements Serializable {
 	
