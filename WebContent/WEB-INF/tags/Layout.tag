@@ -42,8 +42,12 @@
 							<li><a href="<c:url value="/guardInBorderStation/view"/>"><spring:message code="guardInBorderStation.singular"/></a></li>
 							<li><a href="<c:url value="/j_spring_security_logout"/>"><spring:message code="login.logout"/></a></li>
 						</sec:authorize>
-						<li><a href="?siteLanguage=et"><spring:message code="siteLanguage.selection.estonian"/></a></li>
-						<li><a href="?siteLanguage=en"><spring:message code="siteLanguage.selection.english"/></a></li>
+						<li><a href="?siteLanguage=et">
+							<img height="12" width="18" alt="et" src="http://www.itcollege.ee/wp-content/plugins/sitepress-multilingual-cms/res/flags/et.png">
+						</a></li>
+						<li><a href="?siteLanguage=en">
+							<img height="12" width="18" alt="en" src="http://www.itcollege.ee/wp-content/plugins/sitepress-multilingual-cms/res/flags/en.png">
+						</a></li>
 					</ul>
 				</div>
 			</div>
