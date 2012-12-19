@@ -7,7 +7,7 @@
 <pr:Layout>
 	<div class="hero-unit">
 		<h3>
-			<spring:message code="occupationInBorderStation.plural" />
+			<spring:message code="occupationInBorderStation.update" />
 		</h3>
 		<div id="formdiv">
 			<form:form action="update" method="POST" modelAttribute="occupationInBorderStation">
