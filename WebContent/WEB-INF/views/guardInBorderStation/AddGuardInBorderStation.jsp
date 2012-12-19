@@ -11,7 +11,7 @@
 		<div id="formdiv">
 			<form:form action="add" method="POST" modelAttribute="guardInBorderStation">
 				<div>
-					<c:if test="">
+					<c:if test="${errors}">
 						<div id="errorspanel">
 							<table>
 								<tr>

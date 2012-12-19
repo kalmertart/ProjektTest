@@ -71,8 +71,8 @@ public abstract class CrudController<T extends BaseEntity> {
 
 	@RequestMapping(value = ADD, method = RequestMethod.POST)
 	public String addReceive(Model model,
-			@ModelAttribute @Valid T entity, BindingResult result) {		
-
+			@ModelAttribute @Valid T entity, BindingResult result) {
+		
 		if (result.hasErrors()) {
 			model.addAttribute( ERRORS, true );
 			return addingView;

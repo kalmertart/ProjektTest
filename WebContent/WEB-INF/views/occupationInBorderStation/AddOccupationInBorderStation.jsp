@@ -10,14 +10,25 @@
 		</h3>
 		<div id="formdiv">
 		<form:form action="add" method="POST" modelAttribute="occupationInBorderStation">
-				<div>
+			<div>
+				<c:if test="${errors}">
 					<div id="errorspanel">
-						<form:errors path="occupation.id" />
-						<form:errors path="borderStation.id" />
-						<form:errors path="end" />
-						<form:errors path="start" />
-						<form:errors path="comment" />
+						<table>
+							<tr>
+								<td><form:errors path="occupation.id" /></td>
+							</tr>
+							<tr>
+								<td><form:errors path="borderStation.id" /></td>
+							</tr>
+							<tr>
+								<td><form:errors path="start" /></td>
+							</tr>
+							<tr>
+								<td><form:errors path="comment" /></td>
+							</tr>
+						</table>
 					</div>
+				</c:if>
 					<div id="leftpanel">
 						<table>
 							<tr>

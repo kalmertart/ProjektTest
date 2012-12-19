@@ -10,6 +10,7 @@
 		</h1>
 	</div>
 	<div id="formdiv">
+		<form:form action="add" method="POST" modelAttribute="guard">
 		<c:if test="${errors}">
 			<div id="errorspanel">
 				<table>
@@ -43,7 +44,6 @@
 				</table>
 			</div>
 		</c:if>
-		<form:form action="add" method="POST" modelAttribute="guard">
 			<div>
 				<div id="leftpanel">
 					<table>

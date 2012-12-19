@@ -13,7 +13,7 @@
 			<form:form action="update" method="POST" modelAttribute="guardInBorderStation">
 				<form:hidden path="id" />
 				<div>
-					<c:if test="">
+					<c:if test="${errors}">
 						<div id="errorspanel">
 							<table>
 								<tr>
