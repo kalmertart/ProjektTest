@@ -12,8 +12,6 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-import org.hibernate.validator.constraints.Range;
-
 import ee.itcollege.borderproject.common.BaseEntity;
 
 @Entity
@@ -27,7 +25,7 @@ public class Occupation extends BaseEntity implements Serializable {
 
 	@Column(name = "IscoKood")
 	@NotNull
-	@Size(min = 2, max = 8)
+	@Size(min = 2, max = 10)
 	private String iscoCode;
 	
 	@Column(name = "Nimetus")
