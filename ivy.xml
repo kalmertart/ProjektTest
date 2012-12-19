@@ -51,6 +51,5 @@
 		<dependency org="joda-time" name="joda-time" rev="2.1"
 			conf="source,runtime->default" />
 			
-<!-- 		<dependency org="org.eclipse.persistence" name="javax.persistence" rev="2.0.0" conf="source,runtime->default"/> -->
 	</dependencies>
 </ivy-module>
