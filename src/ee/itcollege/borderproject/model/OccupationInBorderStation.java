@@ -8,6 +8,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 import ee.itcollege.borderproject.common.BaseJoinEntity;
 
@@ -22,10 +23,12 @@ public class OccupationInBorderStation extends BaseJoinEntity implements Seriali
 	
 	@ManyToOne
 	@JoinColumn(name = "Amet_Id")
+	@NotNull
 	private Occupation occupation;
 	
 	@ManyToOne
 	@JoinColumn(name = "Piiripunkt_Id")
+	@NotNull
 	private BorderStation borderStation;
 	
 	public Occupation getOccupation() {

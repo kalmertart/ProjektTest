@@ -6,14 +6,18 @@ import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
 import javax.validation.constraints.NotNull;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 @MappedSuperclass
 public class BaseJoinEntity extends BaseEntity {
 	
 	@Column(name = "Alates")
 	@NotNull
+	@DateTimeFormat(pattern="dd/MM/yyyy")
 	private Date start;
 	
 	@Column(name = "Kuni")
+	@DateTimeFormat(pattern="dd/MM/yyyy")
 	private Date end;
 
 	public Date getStart() {

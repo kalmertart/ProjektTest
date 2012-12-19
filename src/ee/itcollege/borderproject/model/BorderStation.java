@@ -10,6 +10,7 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Range;
 
@@ -38,12 +39,12 @@ public class BorderStation extends BaseEntity implements Serializable{
 	
 	@Column(name = "Kood")
 	@NotNull
-	@Range(min = 4, max = 50)
+	@Size(min = 4, max = 50)
 	private String code;
 	
 	@Column(name = "Nimetus")
 	@NotNull
-	@Range(min = 4, max = 100)
+	@Size(min = 4, max = 100)
 	private String name;
 	
 	@OneToMany(mappedBy = "borderStation")

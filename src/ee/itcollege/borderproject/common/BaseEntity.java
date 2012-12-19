@@ -11,8 +11,8 @@ import javax.persistence.PrePersist;
 import javax.persistence.PreRemove;
 import javax.persistence.PreUpdate;
 import javax.persistence.TableGenerator;
+import javax.validation.constraints.NotNull;
 
-import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 
 @MappedSuperclass
@@ -30,9 +30,11 @@ public abstract class BaseEntity {
 	private int id;
 	
 	@Column(name = "avaja")
+	@NotNull
 	private String creator;
 	
 	@Column(name = "avatud")
+	@NotNull
 	private Date created;
 	
 	@Column(name = "muutja")

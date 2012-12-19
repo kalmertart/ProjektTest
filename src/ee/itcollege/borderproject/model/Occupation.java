@@ -27,12 +27,12 @@ public class Occupation extends BaseEntity implements Serializable {
 
 	@Column(name = "IscoKood")
 	@NotNull
-	@Range(min = 2, max = 8)
+	@Size(min = 2, max = 8)
 	private String iscoCode;
 	
 	@Column(name = "Nimetus")
 	@NotNull
-	@Range(min = 5, max = 50)
+	@Size(min = 5, max = 50)
 	private String name;
 	
 	@OneToMany(mappedBy = "occupation")

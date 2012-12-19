@@ -9,6 +9,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Range;
 
@@ -29,10 +30,12 @@ public class GuardInBorderStation extends BaseJoinEntity implements Serializable
 	
 	@ManyToOne
 	@JoinColumn(name = "Piirivalvur_Id")
+	@NotNull
 	private Guard guard;
 	
 	@ManyToOne
 	@JoinColumn(name = "Piiripunkt_Id")
+	@NotNull
 	private BorderStation borderStation;
 	
 	public double getWorkTime() {
