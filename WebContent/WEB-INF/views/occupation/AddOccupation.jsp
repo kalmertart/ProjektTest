@@ -12,6 +12,21 @@
 	<div id="formdiv">
 		<form:form action="add" method="POST" modelAttribute="occupation">
 			<div>
+				<c:if test="${errors}">
+					<div id="errorspanel">
+						<table>
+							<tr>
+								<td><form:errors path="iscoCode" /></td>
+							</tr>
+							<tr>
+								<td><form:errors path="name" /></td>
+							</tr>
+							<tr>
+								<td><form:errors path="comment" /></td>
+							</tr>
+						</table>
+					</div>
+				</c:if>
 				<div id="leftpanel">
 					<table>
 						<tr>
@@ -23,18 +38,12 @@
 							<td><form:input path="iscoCode" /></td>
 						</tr>
 						<tr>
-							<td><form:errors path="iscoCode" /></td>
-						</tr>
-						<tr>
 							<td><form:label path="name">
 									<spring:message code="occupation.field.name" />
 								</form:label></td>
 						</tr>
 						<tr>
 							<td><form:input path="name" /></td>
-						</tr>
-						<tr>
-							<td><form:errors path="name" /></td>
 						</tr>
 						<tr>
 							<td>
@@ -53,10 +62,9 @@
 									rows="3"></form:textarea></td>
 						</tr>
 						<tr>
-							<td><form:errors path="comment" /></td>
-						</tr>
-						<tr>
-						<td><a class="btn btn-default" href="<c:url value="/occupation/view"/>"><spring:message code="entity.button.cancel" /></a></td>
+							<td>
+								<a class="btn btn-default" href="<c:url value="/occupation/view"/>"><spring:message code="entity.button.cancel" /></a>
+							</td>
 						</tr>
 					</table>
 				</div>
