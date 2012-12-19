@@ -30,11 +30,9 @@ public abstract class BaseEntity {
 	private int id;
 	
 	@Column(name = "avaja")
-	@NotNull
 	private String creator;
 	
 	@Column(name = "avatud")
-	@NotNull
 	private Date created;
 	
 	@Column(name = "muutja")

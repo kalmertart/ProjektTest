@@ -47,12 +47,12 @@ public class Guard extends BaseEntity implements Serializable {
 	
 	@Column(name = "isikukood")
 	@NotNull
-	@Length(min = 6, max = 20)
+	@Size(min = 6, max = 20)
 	private String socialSecurityNumber;
 	
 	@Column(name = "sodurikood")
 	@NotNull
-	@Length(min = 4, max = 50)
+	@Size(min = 4, max = 50)
 	private String soldiersCode;
 	
 	@Column(name = "sugu")

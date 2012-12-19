@@ -95,7 +95,7 @@ public abstract class CrudController<T extends BaseEntity> {
 	@RequestMapping(value = UPDATE, method = RequestMethod.POST)
 	public String receiveUpdate(Model model,
 			@ModelAttribute @Valid T entity, BindingResult result) {				
-		
+
 		if(result.hasErrors())
 			return updatingView;
 		
