@@ -7,7 +7,6 @@ import javax.validation.Valid;
 
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -35,6 +34,7 @@ public abstract class CrudController<T extends BaseEntity> {
 	protected static final String DELETE = "/delete";
 	protected static final String ID = "id";
 	protected static final String ERRORS = "errors";
+	protected static final String ERROR_LIST = "errorList";
 	
 	public CrudController() {
 		entityClass = figureOutPersistentClass();
@@ -75,6 +75,7 @@ public abstract class CrudController<T extends BaseEntity> {
 		
 		if (result.hasErrors()) {
 			model.addAttribute( ERRORS, true );
+			model.addAttribute( ERROR_LIST, result.getAllErrors() );
 			return addingView;
 		}
 		
@@ -101,6 +102,7 @@ public abstract class CrudController<T extends BaseEntity> {
 
 		if(result.hasErrors()) {
 			model.addAttribute( ERRORS, true );
+			model.addAttribute( ERROR_LIST, result.getAllErrors() );
 			return updatingView;
 		}
 		

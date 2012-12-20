@@ -14,24 +14,17 @@
 			<form:form action="update" method="POST" modelAttribute="occupationInBorderStation">
 				<form:hidden path="id" />
 				<div>
-				<c:if test="${errors}">
-					<div id="errorspanel">
-						<table>
-							<tr>
-								<td><form:errors path="occupation.id" /></td>
-							</tr>
-							<tr>
-								<td><form:errors path="borderStation.id" /></td>
-							</tr>
-							<tr>
-								<td><form:errors path="start" /></td>
-							</tr>
-							<tr>
-								<td><form:errors path="comment" /></td>
-							</tr>
-						</table>
-					</div>
-				</c:if>
+					<c:if test="${errors}">
+						<div id="errorspanel">
+							<table>
+								<c:forEach items="${errorList}" var="error">
+									<tr>
+										<td><spring:message message="${error}" /></td>
+									</tr>
+								</c:forEach>
+							</table>
+						</div>
+					</c:if>
 					<div id="leftpanel">
 						<table>
 							<tr>

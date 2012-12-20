@@ -15,15 +15,11 @@
 				<c:if test="${errors}">
 					<div id="errorspanel">
 						<table>
-							<tr>
-								<td><form:errors path="iscoCode" /></td>
-							</tr>
-							<tr>
-								<td><form:errors path="name" /></td>
-							</tr>
-							<tr>
-								<td><form:errors path="comment" /></td>
-							</tr>
+							<c:forEach items="${errorList}" var="error">
+								<tr>
+									<td><spring:message message="${error}" /></td>
+								</tr>
+							</c:forEach>
 						</table>
 					</div>
 				</c:if>

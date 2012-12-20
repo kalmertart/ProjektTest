@@ -11,39 +11,17 @@
 	</div>
 	<div id="formdiv">
 		<form:form action="add" method="POST" modelAttribute="guard">
-		<c:if test="${errors}">
-			<div id="errorspanel">
-				<table>
-					<tr>
-						<td><form:errors path="soldiersCode" /></td>
-					</tr>
-					<tr>
-						<td><form:errors path="socialSecurityNumber" /></td>
-					</tr>
-					<tr>
-						<td><form:errors path="firstName" /></td>
-					</tr>
-					<tr>
-						<td><form:errors path="lastName" /></td>
-					</tr>
-					<tr>
-						<td><form:errors path="gender" /></td>
-					</tr>
-					<tr>
-						<td><form:errors path="email" /></td>
-					</tr>
-					<tr>
-						<td><form:errors path="phoneNumber" /></td>
-					</tr>
-					<tr>
-						<td><form:errors path="address" /></td>
-					</tr>
-					<tr>
-						<td><form:errors path="comment" /></td>
-					</tr>
-				</table>
-			</div>
-		</c:if>
+			<c:if test="${errors}">
+				<div id="errorspanel">
+					<table>
+						<c:forEach items="${errorList}" var="error">
+							<tr>
+								<td><spring:message message="${error}" /></td>
+							</tr>
+						</c:forEach>
+					</table>
+				</div>
+			</c:if>
 			<div>
 				<div id="leftpanel">
 					<table>
